@@ -140,14 +140,10 @@
 </head>
 
 <body class="font-display selection:bg-primary/20 overflow-x-hidden">
-  <header class="glass-header sticky top-0 z-50 border-b border-slate-200">
+  <header class="glass-header fixed w-full top-0 z-50 border-b border-slate-200">
     <div class="px-6 lg:px-44 py-2 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div
-          class="size-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
-          <span class="material-symbols-outlined font-bold">clinical_notes</span>
-        </div>
-        <h1 class="text-xl font-extrabold tracking-tight text-heading">We<span class="text-primary">CARE</span></h1>
+        <img src="assets/img/logo.png" alt="" class="w-24">
       </div>
 
       <!-- Desktop Actions -->
@@ -178,12 +174,15 @@
           <span class="text-xs font-bold uppercase tracking-wider text-heading">Home</span>
         </button>
 
-        <!-- Procedures -->
-        <button
-          class="flex items-center gap-2 px-5 py-2 hover:bg-slate-50 rounded-full transition-all whitespace-nowrap">
-          <span class="material-symbols-outlined text-primary text-xl">chat</span>
-          <span class="text-xs font-bold uppercase tracking-wider text-heading">Find Doctors</span>
-        </button>
+        <!-- Find Doctors -->
+        <div class="relative dropdown-container">
+          <button onclick="toggleDropdown('doctors', event)"
+            class="flex items-center gap-2 px-5 py-2 hover:bg-slate-50 rounded-full transition-all whitespace-nowrap">
+            <span class="material-symbols-outlined text-primary text-xl">chat</span>
+            <span class="text-xs font-bold uppercase tracking-wider text-heading">Find Doctors</span>
+            <span class="material-symbols-outlined text-sm">expand_more</span>
+          </button>
+        </div>
 
         <!-- Doctors -->
         <button
@@ -300,9 +299,46 @@
     </div>
 
 
-    <!-- Departments Dropdown -->
+
+    <!-- Doctors Dropdown -->
+    <div id="dropdown-doctors" class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-50 w-64">
+      <div class="p-2">
+        <!-- Urology -->
+        <div class="relative department-item">
+          <button onmouseenter="showDepartmentSubmenu('doc-urology', event)" onclick="toggleDepartment('doc-urology')"
+            class="w-full flex items-center justify-between px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary text-xl">water_drop</span>
+              <span class="text-sm font-semibold text-slate-700">Urology</span>
+            </div>
+            <span
+              class="material-symbols-outlined text-slate-400 text-base group-hover:text-primary">chevron_right</span>
+          </button>
+
+          <!-- Urology Doctors List -->
+          <div id="submenu-doc-urology"
+            class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[60] w-72 p-2"
+            onmouseleave="hideDepartmentSubmenu('doc-urology')">
+            <div class="space-y-1">
+              <!-- Doctor 1 -->
+              <a href="doc.html"
+                class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
+                <div
+                  class="size-10 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden border border-slate-200 shrink-0">
+                  <img src="https://lh3.googleusercontent.com/vril1hFruTG6vslUpI49gLrP9tqTnVWJ4zLZlSs2MyMKZa0tXlIDPirPUnWk5m7XLRKjuvLY_l0TMbmLOpHvUPwuC9RKsJ45ORWMOV0GFg=s1440-rw" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-heading group-hover:text-primary">Dr. Dileep M</h4>
+                  <p class="text-xs text-slate-500 font-medium">Head of Urology</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="dropdown-departments"
-      class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-50 w-64">
+      class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-50 w-64">
       <div class="p-2">
 
         <!-- Orthopedics -->
@@ -319,7 +355,7 @@
 
           <!-- Orthopedics Submenu (Right Side) -->
           <div id="submenu-orthopedics"
-            class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[60] w-56 p-2"
+            class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[60] w-56 p-2"
             onmouseleave="hideDepartmentSubmenu('orthopedics')">
             <a href="#"
               class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
@@ -336,7 +372,7 @@
 
               <!-- Conditions Flyout -->
               <div id="flyout-ortho-conditions"
-                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[70] w-56 p-2"
                 onmouseleave="hideSubmenuFlyout('ortho-conditions')">
                 <a href="#"
                   class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Knee
@@ -362,7 +398,7 @@
 
               <!-- Procedures Flyout -->
               <div id="flyout-ortho-procedures"
-                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[70] w-56 p-2"
                 onmouseleave="hideSubmenuFlyout('ortho-procedures')">
                 <a href="#"
                   class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Knee
@@ -398,7 +434,7 @@
 
           <!-- Cardiology Submenu (Right Side) -->
           <div id="submenu-cardiology"
-            class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[60] w-56 p-2"
+            class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[60] w-56 p-2"
             onmouseleave="hideDepartmentSubmenu('cardiology')">
             <a href="#"
               class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
@@ -415,7 +451,7 @@
 
               <!-- Conditions Flyout -->
               <div id="flyout-cardio-conditions"
-                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[70] w-56 p-2"
                 onmouseleave="hideSubmenuFlyout('cardio-conditions')">
                 <a href="#"
                   class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Coronary
@@ -438,7 +474,7 @@
 
               <!-- Procedures Flyout -->
               <div id="flyout-cardio-procedures"
-                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[70] w-56 p-2"
                 onmouseleave="hideSubmenuFlyout('cardio-procedures')">
                 <a href="#"
                   class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Angioplasty</a>
@@ -473,7 +509,7 @@
 
           <!-- Neurology Submenu (Right Side) -->
           <div id="submenu-neurology"
-            class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[60] w-56 p-2"
+            class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[60] w-56 p-2"
             onmouseleave="hideDepartmentSubmenu('neurology')">
             <a href="#"
               class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
@@ -490,7 +526,7 @@
 
               <!-- Conditions Flyout -->
               <div id="flyout-neuro-conditions"
-                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[70] w-56 p-2"
                 onmouseleave="hideSubmenuFlyout('neuro-conditions')">
                 <a href="#"
                   class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Stroke</a>
@@ -514,7 +550,7 @@
 
               <!-- Procedures Flyout -->
               <div id="flyout-neuro-procedures"
-                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[70] w-56 p-2"
                 onmouseleave="hideSubmenuFlyout('neuro-procedures')">
                 <a href="#"
                   class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Brain
@@ -704,7 +740,7 @@
       </div>
     </div>
   </header>
-  <main class="max-w-7xl mx-auto px-6 py-4">
+  <main class="max-w-7xl mx-auto px-6 py-4 mt-24 lg:mt-40">
 
     <section class="grid lg:grid-cols-2 gap-12 items-center mb-24">
       <div class="space-y-10">
@@ -3064,10 +3100,7 @@
     <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
       <div class="col-span-2">
         <div class="flex items-center gap-3 mb-8">
-          <div class="size-10 bg-primary rounded-xl flex items-center justify-center text-white">
-            <span class="material-symbols-outlined font-bold">clinical_notes</span>
-          </div>
-          <h1 class="text-xl font-extrabold tracking-tight text-heading">HEAL<span class="text-primary">CORE</span></h1>
+          <img src="assets/img/logo.png" alt="" class="w-24">
         </div>
         <p class="text-slate-500 max-w-sm mb-8 leading-relaxed">
           Premium healthcare ecosystem providing unified access to the world's best doctors, clinics, and health
@@ -3120,7 +3153,21 @@
   </footer>
   <script>
     // Toggle main dropdown
+    // Toggle main dropdown
     function toggleDropdown(dropdownId, event) {
+      if (event) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
+
+      // Close other dropdowns
+      ['doctors', 'departments'].forEach(id => {
+        if (id !== dropdownId) {
+          const el = document.getElementById(`dropdown-${id}`);
+          if (el) el.classList.add('hidden');
+        }
+      });
+
       const dropdown = document.getElementById(`dropdown-${dropdownId}`);
       const button = event ? event.currentTarget : null;
 
@@ -3130,9 +3177,7 @@
       // Position dropdown below the button
       if (button && !dropdown.classList.contains('hidden')) {
         const buttonRect = button.getBoundingClientRect();
-        const headerHeight = buttonRect.bottom;
-
-        dropdown.style.top = `${headerHeight + 10}px`; // 10px gap below button
+        dropdown.style.top = `${buttonRect.bottom + 10}px`;
         dropdown.style.left = `${buttonRect.left}px`;
       }
     }
@@ -3149,14 +3194,19 @@
       const submenu = document.getElementById(`submenu-${deptId}`);
       const button = event.currentTarget;
 
+      if (!submenu) return;
+
       submenu.classList.remove('hidden');
 
       // Position submenu to the right of the department button
       const buttonRect = button.getBoundingClientRect();
-      const dropdownRect = button.closest('#dropdown-departments').getBoundingClientRect();
+      const dropdownContainer = button.closest('[id^="dropdown-"]');
 
-      submenu.style.top = `${buttonRect.top}px`;
-      submenu.style.left = `${dropdownRect.right + 5}px`; // 5px gap to the right
+      if (dropdownContainer) {
+        const dropdownRect = dropdownContainer.getBoundingClientRect();
+        submenu.style.top = `${buttonRect.top}px`;
+        submenu.style.left = `${dropdownRect.right + 5}px`; // 5px gap to the right
+      }
     }
 
     // Hide department submenu
@@ -3216,28 +3266,34 @@
     }
 
     // Close dropdown when clicking outside
+    // Close dropdown when clicking outside
     document.addEventListener('click', function (event) {
-      const dropdownContainer = document.querySelector('.dropdown-container');
-      const dropdown = document.getElementById('dropdown-departments');
-
-      if (dropdownContainer && !dropdownContainer.contains(event.target) &&
-        dropdown && !dropdown.contains(event.target)) {
-        dropdown.classList.add('hidden');
-
-        // Hide all submenus and flyouts
-        document.querySelectorAll('[id^="submenu-"]').forEach(menu => {
-          menu.classList.add('hidden');
-        });
-        document.querySelectorAll('[id^="flyout-"]').forEach(flyout => {
-          flyout.classList.add('hidden');
-        });
+      // If click is inside any dropdown or dropdown button, ignore
+      if (event.target.closest('[id^="dropdown-"]') || event.target.closest('.dropdown-container') || event.target.closest('button[onclick^="toggleDropdown"]')) {
+        return;
       }
+
+      // Close all dropdowns
+      ['dropdown-departments', 'dropdown-doctors'].forEach(id => {
+        const dropdown = document.getElementById(id);
+        if (dropdown && !dropdown.classList.contains('hidden')) {
+          dropdown.classList.add('hidden');
+        }
+      });
+
+      // Hide all submenus and flyouts
+      document.querySelectorAll('[id^="submenu-"]').forEach(menu => menu.classList.add('hidden'));
+      document.querySelectorAll('[id^="flyout-"]').forEach(flyout => flyout.classList.add('hidden'));
     });
 
     // Close on ESC key
+    // Close on ESC key
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') {
-        document.getElementById('dropdown-departments').classList.add('hidden');
+        ['dropdown-departments', 'dropdown-doctors'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.classList.add('hidden');
+        });
 
         // Hide all submenus and flyouts
         document.querySelectorAll('[id^="submenu-"]').forEach(menu => {

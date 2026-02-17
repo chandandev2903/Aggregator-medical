@@ -83,11 +83,10 @@
   </head>
   <body class="bg-background-light text-slate-900 font-display">
     <!-- Top Navigation -->
-    <header class="glass-header sticky top-0 z-50 border-b border-slate-200">
+    <header class="glass-header fixed w-full top-0 z-50 border-b border-slate-200">
     <div class="px-6 lg:px-44 py-2 flex items-center justify-between">
-      <!-- Logo replaced with iKonTel logo image -->
       <div class="flex items-center gap-3">
-        <img src="assets/img/image.png" alt="iKonTel" class="h-10 w-auto">
+        <img src="assets/img/logo.png" alt="" class="w-24">
       </div>
 
       <!-- Desktop Actions -->
@@ -112,18 +111,21 @@
       <div class="flex justify-around items-center gap-1 overflow-x-auto no-scrollbar py-2">
 
         <!-- Conditions -->
-        <a href="index.html"><button
+        <button
           class="flex items-center gap-2 px-5 py-2 hover:bg-slate-50 rounded-full transition-all whitespace-nowrap">
           <span class="material-symbols-outlined text-primary text-xl">medical_services</span>
-          <span class="text-xs font-bold uppercase tracking-wider text-heading">Home</span>
-        </button></a>
+          <span class="text-xs font-bold uppercase tracking-wider text-heading"><a href="index2.html">Home</a></span>
+        </button>
 
-        <!-- Procedures -->
-        <a href="doc.html"><button
-          class="flex items-center gap-2 px-5 py-2 hover:bg-slate-50 rounded-full transition-all whitespace-nowrap">
-          <span class="material-symbols-outlined text-primary text-xl">chat</span>
-          <span class="text-xs font-bold uppercase tracking-wider text-heading">Find Doctors</span>
-        </button></a>
+        <!-- Find Doctors -->
+        <div class="relative dropdown-container">
+          <button onclick="toggleDropdown('doctors', event)"
+            class="flex items-center gap-2 px-5 py-2 hover:bg-slate-50 rounded-full transition-all whitespace-nowrap">
+            <span class="material-symbols-outlined text-primary text-xl">chat</span>
+            <span class="text-xs font-bold uppercase tracking-wider text-heading">Find Doctors</span>
+            <span class="material-symbols-outlined text-sm">expand_more</span>
+          </button>
+        </div>
 
         <!-- Doctors -->
         <button
@@ -180,7 +182,7 @@
             <span class="text-sm font-semibold text-slate-700 group-hover:text-primary">Home</span>
           </a>
 
-          <a href="doc.html" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
+          <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
             <span class="material-symbols-outlined text-primary text-xl">chat</span>
             <span class="text-sm font-semibold text-slate-700 group-hover:text-primary">Find Doctors</span>
           </a>
@@ -240,9 +242,46 @@
     </div>
 
 
-    <!-- Departments Dropdown -->
+
+    <!-- Doctors Dropdown -->
+    <div id="dropdown-doctors" class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-50 w-64">
+      <div class="p-2">
+        <!-- Urology -->
+        <div class="relative department-item">
+          <button onmouseenter="showDepartmentSubmenu('doc-urology', event)" onclick="toggleDepartment('doc-urology')"
+            class="w-full flex items-center justify-between px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary text-xl">water_drop</span>
+              <span class="text-sm font-semibold text-slate-700">Urology</span>
+            </div>
+            <span
+              class="material-symbols-outlined text-slate-400 text-base group-hover:text-primary">chevron_right</span>
+          </button>
+
+          <!-- Urology Doctors List -->
+          <div id="submenu-doc-urology"
+            class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[60] w-72 p-2"
+            onmouseleave="hideDepartmentSubmenu('doc-urology')">
+            <div class="space-y-1">
+              <!-- Doctor 1 -->
+              <a href="doc.html"
+                class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
+                <div
+                  class="size-10 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden border border-slate-200 shrink-0">
+                  <img src="https://lh3.googleusercontent.com/vril1hFruTG6vslUpI49gLrP9tqTnVWJ4zLZlSs2MyMKZa0tXlIDPirPUnWk5m7XLRKjuvLY_l0TMbmLOpHvUPwuC9RKsJ45ORWMOV0GFg=s1440-rw" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-heading group-hover:text-primary">Dr. Dileep M</h4>
+                  <p class="text-xs text-slate-500 font-medium">Head of Urology</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="dropdown-departments"
-      class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-50 w-64">
+      class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-50 w-64">
       <div class="p-2">
 
         <!-- Orthopedics -->
@@ -259,7 +298,7 @@
 
           <!-- Orthopedics Submenu (Right Side) -->
           <div id="submenu-orthopedics"
-            class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[60] w-56 p-2"
+            class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[60] w-56 p-2"
             onmouseleave="hideDepartmentSubmenu('orthopedics')">
             <a href="#"
               class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
@@ -276,7 +315,7 @@
 
               <!-- Conditions Flyout -->
               <div id="flyout-ortho-conditions"
-                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[70] w-56 p-2"
                 onmouseleave="hideSubmenuFlyout('ortho-conditions')">
                 <a href="#"
                   class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Knee
@@ -302,7 +341,7 @@
 
               <!-- Procedures Flyout -->
               <div id="flyout-ortho-procedures"
-                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[70] w-56 p-2"
                 onmouseleave="hideSubmenuFlyout('ortho-procedures')">
                 <a href="#"
                   class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Knee
@@ -338,7 +377,7 @@
 
           <!-- Cardiology Submenu (Right Side) -->
           <div id="submenu-cardiology"
-            class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[60] w-56 p-2"
+            class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[60] w-56 p-2"
             onmouseleave="hideDepartmentSubmenu('cardiology')">
             <a href="#"
               class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
@@ -355,7 +394,7 @@
 
               <!-- Conditions Flyout -->
               <div id="flyout-cardio-conditions"
-                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[70] w-56 p-2"
                 onmouseleave="hideSubmenuFlyout('cardio-conditions')">
                 <a href="#"
                   class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Coronary
@@ -378,7 +417,7 @@
 
               <!-- Procedures Flyout -->
               <div id="flyout-cardio-procedures"
-                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[70] w-56 p-2"
                 onmouseleave="hideSubmenuFlyout('cardio-procedures')">
                 <a href="#"
                   class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Angioplasty</a>
@@ -413,7 +452,7 @@
 
           <!-- Neurology Submenu (Right Side) -->
           <div id="submenu-neurology"
-            class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[60] w-56 p-2"
+            class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[60] w-56 p-2"
             onmouseleave="hideDepartmentSubmenu('neurology')">
             <a href="#"
               class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
@@ -430,7 +469,7 @@
 
               <!-- Conditions Flyout -->
               <div id="flyout-neuro-conditions"
-                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[70] w-56 p-2"
                 onmouseleave="hideSubmenuFlyout('neuro-conditions')">
                 <a href="#"
                   class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Stroke</a>
@@ -454,7 +493,7 @@
 
               <!-- Procedures Flyout -->
               <div id="flyout-neuro-procedures"
-                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                class="hidden fixed bg-white rounded-[20px] shadow-xl border border-slate-200 z-[70] w-56 p-2"
                 onmouseleave="hideSubmenuFlyout('neuro-procedures')">
                 <a href="#"
                   class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Brain
@@ -647,7 +686,7 @@
     <main>
       <!-- Hero Section -->
       <section
-        class="relative overflow-hidden bg-white pt-12 pb-20 doctor-gradient"
+        class="relative overflow-hidden bg-white md:pt-44 pb-20 doctor-gradient"
       >
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -1032,7 +1071,7 @@
       <div class="col-span-2">
         <!-- Logo replaced with iKonTel logo image -->
         <div class="flex items-center gap-3 mb-8">
-          <img src="assets/img/image.png" alt="iKonTel" class="h-10 w-auto">
+           <img src="assets/img/logo.png" alt="" class="w-24">
         </div>
         <p class="text-slate-500 max-w-sm mb-8 leading-relaxed">
           Premium healthcare ecosystem providing unified access to the world's best doctors, clinics, and health
@@ -1084,59 +1123,276 @@
     </div>
   </footer>
 
-    <!-- JavaScript for smooth scroll and read more toggle -->
-    <script>
-      // Smooth scroll for tabs
-      document.addEventListener('DOMContentLoaded', function() {
-        const treatmentsTab = document.getElementById('treatments-tab');
-        const hospitalsTab = document.getElementById('hospitals-tab');
-        const faqTab = document.getElementById('faq-tab');
+   <script>
+    // Toggle main dropdown
+    // Toggle main dropdown
+    function toggleDropdown(dropdownId, event) {
+      if (event) {
+        event.stopPropagation();
+        event.preventDefault();
+      }
 
-        if (treatmentsTab) {
-          treatmentsTab.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('core-expertise').scrollIntoView({ behavior: 'smooth' });
-          });
-        }
-        if (hospitalsTab) {
-          hospitalsTab.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('hospital-affiliations').scrollIntoView({ behavior: 'smooth' });
-          });
-        }
-        if (faqTab) {
-          faqTab.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.getElementById('patient-faqs').scrollIntoView({ behavior: 'smooth' });
-          });
-        }
-
-        // Read more / Read less functionality
-        const readMoreBtn = document.getElementById('read-more-btn');
-        const extraContent = document.getElementById('about-extra');
-        if (readMoreBtn && extraContent) {
-          readMoreBtn.addEventListener('click', function() {
-            if (extraContent.classList.contains('hidden')) {
-              extraContent.classList.remove('hidden');
-              readMoreBtn.innerHTML = '<span>Read less</span> <span class="material-symbols-outlined text-base">expand_less</span>';
-            } else {
-              extraContent.classList.add('hidden');
-              readMoreBtn.innerHTML = '<span>Read more</span> <span class="material-symbols-outlined text-base">expand_more</span>';
-            }
-          });
+      // Close other dropdowns
+      ['doctors', 'departments'].forEach(id => {
+        if (id !== dropdownId) {
+          const el = document.getElementById(`dropdown-${id}`);
+          if (el) el.classList.add('hidden');
         }
       });
 
-      // Placeholders for existing toggle functions (to avoid errors)
-      function toggleMobileMenu() { /* existing implementation would go here, but we keep minimal to avoid break */ }
-      function toggleDropdown() { }
-      function showDepartmentSubmenu() { }
-      function toggleDepartment() { }
-      function hideDepartmentSubmenu() { }
-      function showSubmenuFlyout() { }
-      function hideSubmenuFlyout() { }
-      function toggleMobileDepartments() { }
-      function toggleSection() { }
-    </script>
+      const dropdown = document.getElementById(`dropdown-${dropdownId}`);
+      const button = event ? event.currentTarget : null;
+
+      // Toggle visibility
+      dropdown.classList.toggle('hidden');
+
+      // Position dropdown below the button
+      if (button && !dropdown.classList.contains('hidden')) {
+        const buttonRect = button.getBoundingClientRect();
+        dropdown.style.top = `${buttonRect.bottom + 10}px`;
+        dropdown.style.left = `${buttonRect.left}px`;
+      }
+    }
+
+    // Show department submenu on hover (right side)
+    function showDepartmentSubmenu(deptId, event) {
+      // Hide all other department submenus first
+      document.querySelectorAll('[id^="submenu-"]').forEach(menu => {
+        if (menu.id !== `submenu-${deptId}`) {
+          menu.classList.add('hidden');
+        }
+      });
+
+      const submenu = document.getElementById(`submenu-${deptId}`);
+      const button = event.currentTarget;
+
+      if (!submenu) return;
+
+      submenu.classList.remove('hidden');
+
+      // Position submenu to the right of the department button
+      const buttonRect = button.getBoundingClientRect();
+      const dropdownContainer = button.closest('[id^="dropdown-"]');
+
+      if (dropdownContainer) {
+        const dropdownRect = dropdownContainer.getBoundingClientRect();
+        submenu.style.top = `${buttonRect.top}px`;
+        submenu.style.left = `${dropdownRect.right + 5}px`; // 5px gap to the right
+      }
+    }
+
+    // Hide department submenu
+    function hideDepartmentSubmenu(deptId) {
+      setTimeout(() => {
+        const submenu = document.getElementById(`submenu-${deptId}`);
+        const isHovered = submenu.matches(':hover');
+
+        if (!isHovered) {
+          submenu.classList.add('hidden');
+          // Also hide any open flyouts
+          document.querySelectorAll('[id^="flyout-"]').forEach(flyout => {
+            flyout.classList.add('hidden');
+          });
+        }
+      }, 100);
+    }
+
+    // Show submenu flyout (Conditions/Procedures) on hover
+    function showSubmenuFlyout(flyoutId, event) {
+      // Hide all other flyouts first
+      document.querySelectorAll('[id^="flyout-"]').forEach(flyout => {
+        if (flyout.id !== `flyout-${flyoutId}`) {
+          flyout.classList.add('hidden');
+        }
+      });
+
+      const flyout = document.getElementById(`flyout-${flyoutId}`);
+      const button = event.currentTarget;
+
+      flyout.classList.remove('hidden');
+
+      // Position flyout to the right of the submenu button
+      const buttonRect = button.getBoundingClientRect();
+      const submenuRect = button.closest('[id^="submenu-"]').getBoundingClientRect();
+
+      flyout.style.top = `${buttonRect.top}px`;
+      flyout.style.left = `${submenuRect.right + 5}px`; // 5px gap to the right
+    }
+
+    // Hide submenu flyout
+    function hideSubmenuFlyout(flyoutId) {
+      setTimeout(() => {
+        const flyout = document.getElementById(`flyout-${flyoutId}`);
+        const isHovered = flyout.matches(':hover');
+
+        if (!isHovered) {
+          flyout.classList.add('hidden');
+        }
+      }, 100);
+    }
+
+    // Toggle department (for click)
+    function toggleDepartment(deptId) {
+      const submenu = document.getElementById(`submenu-${deptId}`);
+      submenu.classList.toggle('hidden');
+    }
+
+    // Close dropdown when clicking outside
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function (event) {
+      // If click is inside any dropdown or dropdown button, ignore
+      if (event.target.closest('[id^="dropdown-"]') || event.target.closest('.dropdown-container') || event.target.closest('button[onclick^="toggleDropdown"]')) {
+        return;
+      }
+
+      // Close all dropdowns
+      ['dropdown-departments', 'dropdown-doctors'].forEach(id => {
+        const dropdown = document.getElementById(id);
+        if (dropdown && !dropdown.classList.contains('hidden')) {
+          dropdown.classList.add('hidden');
+        }
+      });
+
+      // Hide all submenus and flyouts
+      document.querySelectorAll('[id^="submenu-"]').forEach(menu => menu.classList.add('hidden'));
+      document.querySelectorAll('[id^="flyout-"]').forEach(flyout => flyout.classList.add('hidden'));
+    });
+
+    // Close on ESC key
+    // Close on ESC key
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        ['dropdown-departments', 'dropdown-doctors'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.classList.add('hidden');
+        });
+
+        // Hide all submenus and flyouts
+        document.querySelectorAll('[id^="submenu-"]').forEach(menu => {
+          menu.classList.add('hidden');
+        });
+        document.querySelectorAll('[id^="flyout-"]').forEach(flyout => {
+          flyout.classList.add('hidden');
+        });
+      }
+    });
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const overlay = document.getElementById('mobile-menu');
+      const sidebar = document.getElementById('mobile-menu-sidebar');
+
+      overlay.classList.toggle('hidden');
+
+      if (overlay.classList.contains('hidden')) {
+        // Closing menu
+        sidebar.style.transform = 'translateX(100%)';
+      } else {
+        // Opening menu
+        sidebar.style.transform = 'translateX(0)';
+      }
+    }
+
+    // Toggle mobile departments accordion
+    function toggleMobileDepartments() {
+      const list = document.getElementById('mobile-departments-list');
+      const arrow = document.getElementById('mobile-dept-arrow');
+
+      list.classList.toggle('hidden');
+      arrow.classList.toggle('rotate-180');
+    }
+
+    // Scroll questions container
+    function scrollQuestions(direction) {
+      const container = document.getElementById('questions-container');
+      const scrollAmount = 400; // Approximate card width + gap
+
+      if (direction === 'left') {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }
+
+    // Filter questions by category
+    function filterQuestions(btn, category) {
+      // Update active button state
+      const buttons = document.querySelectorAll('.category-btn');
+      buttons.forEach(b => {
+        b.classList.remove('active', 'bg-blue-50', 'text-blue-700', 'border-blue-600');
+        b.classList.add('text-slate-600', 'border-slate-200', 'hover:border-blue-200', 'hover:text-blue-600', 'hover:bg-slate-50');
+      });
+
+      btn.classList.remove('text-slate-600', 'border-slate-200', 'hover:border-blue-200', 'hover:text-blue-600', 'hover:bg-slate-50');
+      btn.classList.add('active', 'bg-blue-50', 'text-blue-700', 'border-blue-600');
+
+      // Filter cards
+      const cards = document.querySelectorAll('.question-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Scroll-triggered reveal for 2nd fold (staggered)
+    const portalObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 200);
+          portalObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.portal-animate').forEach(el => portalObserver.observe(el));
+
+    // Animated stat counters
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const duration = 2000;
+      const startTime = performance.now();
+
+      function easeOutExpo(t) {
+        return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+      }
+
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutExpo(progress);
+        const current = Math.floor(easedProgress * target);
+
+        el.textContent = current.toLocaleString() + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          el.textContent = target.toLocaleString() + suffix;
+        }
+      }
+      requestAnimationFrame(update);
+    }
+
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('.stat-counter');
+          counters.forEach((counter, i) => {
+            setTimeout(() => animateCounter(counter), i * 200);
+          });
+          statObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const statsBar = document.querySelector('.glass-card');
+    if (statsBar) statObserver.observe(statsBar.closest('.portal-animate') || statsBar);
+  </script>
   </body>
 </html>
