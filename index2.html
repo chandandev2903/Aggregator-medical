@@ -1,0 +1,3371 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-x-hidden">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Modern Healthcare Ecosystem - Premium Light</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0ea5e9",
+            "heading": "#0f172a",
+            "body-text": "#334155",
+            "background-light": "#FAFAFA",
+            "card-bg": "#ffffff",
+          },
+          fontFamily: {
+            "display": ["Manrope", "sans-serif"],
+            "serif": ["Playfair Display", "serif"],
+          },
+          borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+            body {
+                @apply bg-background-light text-body-text;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-glow {
+            box-shadow: 0 0 60px 10px rgba(14, 165, 233, 0.08);
+        }
+        .bento-pattern {
+            background-image: radial-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* ─── 2nd Fold Premium Animations ─── */
+        .portal-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .portal-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Floating shapes */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        @keyframes float-reverse {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(15px) rotate(-4deg); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.08); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes line-grow {
+            from { width: 0; }
+            to { width: 80px; }
+        }
+        .float-shape-1 { animation: float-slow 6s ease-in-out infinite; }
+        .float-shape-2 { animation: float-reverse 7s ease-in-out infinite; }
+        .float-shape-3 { animation: float-slow 8s ease-in-out infinite 1s; }
+        .pulse-blob { animation: pulse-glow 4s ease-in-out infinite; }
+        .shimmer-text {
+            background: linear-gradient(90deg, #0f172a 0%, #0ea5e9 25%, #0f172a 50%, #0ea5e9 75%, #0f172a 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+        .animated-gradient-bg {
+            background: linear-gradient(-45deg, #f0f9ff, #e0f2fe, #f0fdf4, #faf5ff, #fff7ed);
+            background-size: 400% 400%;
+            animation: gradient-shift 12s ease infinite;
+        }
+        .line-animate {
+            animation: line-grow 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .portal-card-stagger:nth-child(1) { transition-delay: 0s; }
+        .portal-card-stagger:nth-child(2) { transition-delay: 0.12s; }
+        .portal-card-stagger:nth-child(3) { transition-delay: 0.24s; }
+        .portal-card-stagger:nth-child(4) { transition-delay: 0.36s; }
+        .stat-counter {
+            font-variant-numeric: tabular-nums;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll {
+            animation: scroll 40s linear infinite;
+        }
+    </style>
+</head>
+
+<body class="font-display selection:bg-primary/20 overflow-x-hidden">
+  <header class="glass-header sticky top-0 z-50 border-b border-slate-200">
+    <div class="px-6 lg:px-44 py-2 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div
+          class="size-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
+          <span class="material-symbols-outlined font-bold">clinical_notes</span>
+        </div>
+        <h1 class="text-xl font-extrabold tracking-tight text-heading">We<span class="text-primary">CARE</span></h1>
+      </div>
+
+      <!-- Desktop Actions -->
+      <div class="hidden lg:flex items-center gap-4">
+        <button
+          class="px-6 py-2.5 text-sm font-bold text-heading hover:text-primary transition-colors">Login/Signup</button>
+        <button
+          class="bg-primary text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-all">
+          Book Free Appointment
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Menu -->
+      <button id="mobile-menu-btn" onclick="toggleMobileMenu()"
+        class="lg:hidden flex items-center justify-center size-10 rounded-lg hover:bg-slate-100 transition-colors">
+        <span class="material-symbols-outlined text-heading">menu</span>
+      </button>
+    </div>
+
+    <!-- Desktop Navigation Items - Full Width -->
+    <div class="hidden lg:block px-6 lg:px-20 pb-3">
+      <div class="flex justify-around items-center gap-1 overflow-x-auto no-scrollbar py-2">
+
+        <!-- Conditions -->
+        <button
+          class="flex items-center gap-2 px-5 py-2 hover:bg-slate-50 rounded-full transition-all whitespace-nowrap">
+          <span class="material-symbols-outlined text-primary text-xl">medical_services</span>
+          <span class="text-xs font-bold uppercase tracking-wider text-heading">Home</span>
+        </button>
+
+        <!-- Procedures -->
+        <button
+          class="flex items-center gap-2 px-5 py-2 hover:bg-slate-50 rounded-full transition-all whitespace-nowrap">
+          <span class="material-symbols-outlined text-primary text-xl">chat</span>
+          <span class="text-xs font-bold uppercase tracking-wider text-heading">Find Doctors</span>
+        </button>
+
+        <!-- Doctors -->
+        <button
+          class="flex items-center gap-2 px-5 py-2 hover:bg-slate-50 rounded-full transition-all whitespace-nowrap">
+          <span class="material-symbols-outlined text-primary text-xl">ecg_heart</span>
+          <span class="text-xs font-bold uppercase tracking-wider text-heading">Hospitals</span>
+        </button>
+
+        <!-- Hospitals -->
+        <div class="relative dropdown-container">
+          <button onclick="toggleDropdown('departments', event)"
+            class="flex items-center gap-2 px-5 py-2 hover:bg-slate-50 rounded-full transition-all whitespace-nowrap">
+            <span class="material-symbols-outlined text-primary text-xl">calendar_month</span>
+            <span class="text-xs font-bold uppercase tracking-wider text-heading">Departments</span>
+            <span class="material-symbols-outlined text-sm">expand_more</span>
+          </button>
+        </div>
+
+        <button
+          class="flex items-center gap-2 px-5 py-2 hover:bg-slate-50 rounded-full transition-all whitespace-nowrap">
+          <span class="material-symbols-outlined text-primary text-xl">rss_feed</span>
+          <span class="text-xs font-bold uppercase tracking-wider text-heading">Procedures</span>
+        </button>
+
+        <button
+          class="flex items-center gap-2 px-5 py-2 hover:bg-slate-50 rounded-full transition-all whitespace-nowrap">
+          <span class="material-symbols-outlined text-primary text-xl">rss_feed</span>
+          <span class="text-xs font-bold uppercase tracking-wider text-heading">Contact</span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden lg:hidden fixed inset-0 bg-black/50 z-40" onclick="toggleMobileMenu()"></div>
+
+    <!-- Mobile Menu Sidebar -->
+    <div id="mobile-menu-sidebar"
+      class="lg:hidden fixed top-0 right-0 h-screen min-h-screen w-80 max-w-[85vw] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 overflow-y-auto">
+      <div class="p-6">
+        <!-- Close Button -->
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-xl font-bold text-heading">Menu</h2>
+          <button onclick="toggleMobileMenu()"
+            class="size-10 flex items-center justify-center rounded-lg hover:bg-slate-100 transition-colors">
+            <span class="material-symbols-outlined text-heading">close</span>
+          </button>
+        </div>
+
+        <!-- Mobile Navigation Links -->
+        <nav class="space-y-2">
+          <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
+            <span class="material-symbols-outlined text-primary text-xl">medical_services</span>
+            <span class="text-sm font-semibold text-slate-700 group-hover:text-primary">Home</span>
+          </a>
+
+          <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
+            <span class="material-symbols-outlined text-primary text-xl">chat</span>
+            <span class="text-sm font-semibold text-slate-700 group-hover:text-primary">Find Doctors</span>
+          </a>
+
+          <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
+            <span class="material-symbols-outlined text-primary text-xl">ecg_heart</span>
+            <span class="text-sm font-semibold text-slate-700 group-hover:text-primary">Hospitals</span>
+          </a>
+
+          <!-- Mobile Departments Accordion -->
+          <div class="border-t border-slate-100 pt-2 mt-2">
+            <button onclick="toggleMobileDepartments()"
+              class="w-full flex items-center justify-between px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
+              <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary text-xl">calendar_month</span>
+                <span class="text-sm font-semibold text-slate-700 group-hover:text-primary">Departments</span>
+              </div>
+              <span id="mobile-dept-arrow"
+                class="material-symbols-outlined text-slate-400 transition-transform">expand_more</span>
+            </button>
+
+            <div id="mobile-departments-list" class="hidden pl-12 pr-4 py-2 space-y-1">
+              <a href="#"
+                class="block px-3 py-2 text-sm text-slate-600 hover:text-primary hover:bg-blue-50 rounded-lg">Orthopedics</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-slate-600 hover:text-primary hover:bg-blue-50 rounded-lg">Cardiology</a>
+              <a href="#"
+                class="block px-3 py-2 text-sm text-slate-600 hover:text-primary hover:bg-blue-50 rounded-lg">Neurology</a>
+            </div>
+          </div>
+
+          <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
+            <span class="material-symbols-outlined text-primary text-xl">rss_feed</span>
+            <span class="text-sm font-semibold text-slate-700 group-hover:text-primary">Procedures</span>
+          </a>
+
+          <a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
+            <span class="material-symbols-outlined text-primary text-xl">contact_page</span>
+            <span class="text-sm font-semibold text-slate-700 group-hover:text-primary">Contact</span>
+          </a>
+        </nav>
+
+        <!-- Mobile Actions -->
+        <div class="mt-8 space-y-3 border-t border-slate-100 pt-6">
+          <button
+            class="w-full px-6 py-3 text-sm font-bold text-heading hover:bg-slate-100 rounded-lg transition-colors">
+            Login/Signup
+          </button>
+          <button
+            class="w-full bg-primary text-white px-6 py-3 rounded-lg text-sm font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-all">
+            Book Free Appointment
+          </button>
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+
+    <!-- Departments Dropdown -->
+    <div id="dropdown-departments"
+      class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-50 w-64">
+      <div class="p-2">
+
+        <!-- Orthopedics -->
+        <div class="relative department-item">
+          <button onmouseenter="showDepartmentSubmenu('orthopedics', event)" onclick="toggleDepartment('orthopedics')"
+            class="w-full flex items-center justify-between px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary text-xl">healing</span>
+              <span class="text-sm font-semibold text-slate-700">Orthopedics</span>
+            </div>
+            <span
+              class="material-symbols-outlined text-slate-400 text-base group-hover:text-primary">chevron_right</span>
+          </button>
+
+          <!-- Orthopedics Submenu (Right Side) -->
+          <div id="submenu-orthopedics"
+            class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[60] w-56 p-2"
+            onmouseleave="hideDepartmentSubmenu('orthopedics')">
+            <a href="#"
+              class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
+              Overview
+            </a>
+
+            <!-- Conditions with flyout -->
+            <div class="relative submenu-item">
+              <button onmouseenter="showSubmenuFlyout('ortho-conditions', event)"
+                class="w-full flex items-center justify-between px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
+                <span>Conditions</span>
+                <span class="material-symbols-outlined text-xs">chevron_right</span>
+              </button>
+
+              <!-- Conditions Flyout -->
+              <div id="flyout-ortho-conditions"
+                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                onmouseleave="hideSubmenuFlyout('ortho-conditions')">
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Knee
+                  Osteoarthritis</a>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">ACL
+                  Tear</a>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Slip
+                  Disc</a>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Fractures</a>
+              </div>
+            </div>
+
+            <!-- Procedures with flyout -->
+            <div class="relative submenu-item">
+              <button onmouseenter="showSubmenuFlyout('ortho-procedures', event)"
+                class="w-full flex items-center justify-between px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
+                <span>Procedures</span>
+                <span class="material-symbols-outlined text-xs">chevron_right</span>
+              </button>
+
+              <!-- Procedures Flyout -->
+              <div id="flyout-ortho-procedures"
+                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                onmouseleave="hideSubmenuFlyout('ortho-procedures')">
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Knee
+                  Replacement</a>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Hip
+                  Replacement</a>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Arthroscopy</a>
+              </div>
+            </div>
+
+            <div class="border-t border-slate-100 my-1"></div>
+
+            <a href="#"
+              class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">Doctors</a>
+            <a href="#"
+              class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">Hospitals</a>
+          </div>
+        </div>
+
+        <!-- Cardiology -->
+        <div class="relative department-item">
+          <button onmouseenter="showDepartmentSubmenu('cardiology', event)" onclick="toggleDepartment('cardiology')"
+            class="w-full flex items-center justify-between px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary text-xl">favorite</span>
+              <span class="text-sm font-semibold text-slate-700">Cardiology</span>
+            </div>
+            <span
+              class="material-symbols-outlined text-slate-400 text-base group-hover:text-primary">chevron_right</span>
+          </button>
+
+          <!-- Cardiology Submenu (Right Side) -->
+          <div id="submenu-cardiology"
+            class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[60] w-56 p-2"
+            onmouseleave="hideDepartmentSubmenu('cardiology')">
+            <a href="#"
+              class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
+              Overview
+            </a>
+
+            <!-- Conditions with flyout -->
+            <div class="relative submenu-item">
+              <button onmouseenter="showSubmenuFlyout('cardio-conditions', event)"
+                class="w-full flex items-center justify-between px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
+                <span>Conditions</span>
+                <span class="material-symbols-outlined text-xs">chevron_right</span>
+              </button>
+
+              <!-- Conditions Flyout -->
+              <div id="flyout-cardio-conditions"
+                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                onmouseleave="hideSubmenuFlyout('cardio-conditions')">
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Coronary
+                  Artery Disease</a>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Heart
+                  Failure</a>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Arrhythmia</a>
+              </div>
+            </div>
+
+            <!-- Procedures with flyout -->
+            <div class="relative submenu-item">
+              <button onmouseenter="showSubmenuFlyout('cardio-procedures', event)"
+                class="w-full flex items-center justify-between px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
+                <span>Procedures</span>
+                <span class="material-symbols-outlined text-xs">chevron_right</span>
+              </button>
+
+              <!-- Procedures Flyout -->
+              <div id="flyout-cardio-procedures"
+                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                onmouseleave="hideSubmenuFlyout('cardio-procedures')">
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Angioplasty</a>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Bypass
+                  Surgery</a>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Pacemaker</a>
+              </div>
+            </div>
+
+            <div class="border-t border-slate-100 my-1"></div>
+
+            <a href="#"
+              class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">Doctors</a>
+            <a href="#"
+              class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">Hospitals</a>
+          </div>
+        </div>
+
+        <!-- Neurology -->
+        <div class="relative department-item">
+          <button onmouseenter="showDepartmentSubmenu('neurology', event)" onclick="toggleDepartment('neurology')"
+            class="w-full flex items-center justify-between px-4 py-3 hover:bg-blue-50 rounded-lg transition-all group">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary text-xl">psychology</span>
+              <span class="text-sm font-semibold text-slate-700">Neurology</span>
+            </div>
+            <span
+              class="material-symbols-outlined text-slate-400 text-base group-hover:text-primary">chevron_right</span>
+          </button>
+
+          <!-- Neurology Submenu (Right Side) -->
+          <div id="submenu-neurology"
+            class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[60] w-56 p-2"
+            onmouseleave="hideDepartmentSubmenu('neurology')">
+            <a href="#"
+              class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
+              Overview
+            </a>
+
+            <!-- Conditions with flyout -->
+            <div class="relative submenu-item">
+              <button onmouseenter="showSubmenuFlyout('neuro-conditions', event)"
+                class="w-full flex items-center justify-between px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
+                <span>Conditions</span>
+                <span class="material-symbols-outlined text-xs">chevron_right</span>
+              </button>
+
+              <!-- Conditions Flyout -->
+              <div id="flyout-neuro-conditions"
+                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                onmouseleave="hideSubmenuFlyout('neuro-conditions')">
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Stroke</a>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Epilepsy</a>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Parkinson's
+                  Disease</a>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Migraine</a>
+              </div>
+            </div>
+
+            <!-- Procedures with flyout -->
+            <div class="relative submenu-item">
+              <button onmouseenter="showSubmenuFlyout('neuro-procedures', event)"
+                class="w-full flex items-center justify-between px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">
+                <span>Procedures</span>
+                <span class="material-symbols-outlined text-xs">chevron_right</span>
+              </button>
+
+              <!-- Procedures Flyout -->
+              <div id="flyout-neuro-procedures"
+                class="hidden fixed bg-white rounded-xl shadow-2xl border border-slate-200 z-[70] w-52 p-2"
+                onmouseleave="hideSubmenuFlyout('neuro-procedures')">
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Brain
+                  Surgery</a>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Spinal
+                  Surgery</a>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-slate-600 hover:bg-blue-50 hover:text-primary rounded-lg transition-all">Deep
+                  Brain Stimulation</a>
+              </div>
+            </div>
+
+            <div class="border-t border-slate-100 my-1"></div>
+
+            <a href="#"
+              class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">Doctors</a>
+            <a href="#"
+              class="block px-4 py-2.5 text-sm text-slate-700 hover:bg-blue-50 hover:text-primary rounded-lg transition-all font-medium">Hospitals</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Departments Dropdown (outside overflow container) -->
+    <div id="dropdown-departments"
+      class="hidden fixed left-6 lg:left-20 bg-white rounded-lg shadow-xl border border-gray-200 z-50 w-80"
+      style="top: 140px;">
+      <div class="p-4">
+
+        <!-- Orthopedics -->
+        <div class="mb-2">
+          <button onclick="toggleDepartment('orthopedics')"
+            class="w-full flex items-center justify-between px-4 py-3 hover:bg-slate-50 rounded-lg transition-all">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary text-2xl">healing</span>
+              <span class="font-semibold text-heading">Orthopedics</span>
+            </div>
+            <span id="arrow-orthopedics"
+              class="material-symbols-outlined text-gray-400 transition-transform">chevron_right</span>
+          </button>
+
+          <!-- Orthopedics Submenu -->
+          <div id="submenu-orthopedics" class="hidden pl-4 mt-2 space-y-1">
+            <a href="#" class="block px-4 py-2  text-gray-700 hover:bg-slate-50 rounded">Overview</a>
+
+            <div class="relative">
+              <button onclick="toggleSection('ortho-conditions')"
+                class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-slate-50 rounded">
+                <span>Conditions</span>
+                <span id="arrow-ortho-conditions"
+                  class="material-symbols-outlined text-xs transition-transform">chevron_right</span>
+              </button>
+              <div id="section-ortho-conditions" class="hidden pl-4 mt-1 space-y-1">
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Knee
+                  Osteoarthritis</a>
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">ACL Tear</a>
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Slip Disc</a>
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Fractures</a>
+              </div>
+            </div>
+
+            <div class="relative">
+              <button onclick="toggleSection('ortho-procedures')"
+                class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-slate-50 rounded">
+                <span>Procedures</span>
+                <span id="arrow-ortho-procedures"
+                  class="material-symbols-outlined text-xs transition-transform">chevron_right</span>
+              </button>
+              <div id="section-ortho-procedures" class="hidden pl-4 mt-1 space-y-1">
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Knee
+                  Replacement</a>
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Hip
+                  Replacement</a>
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Arthroscopy</a>
+              </div>
+            </div>
+
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-slate-50 rounded">Doctors</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-slate-50 rounded">Hospitals</a>
+          </div>
+        </div>
+
+        <!-- Cardiology -->
+        <div class="mb-2">
+          <button onclick="toggleDepartment('cardiology')"
+            class="w-full flex items-center justify-between px-4 py-3 hover:bg-slate-50 rounded-lg transition-all">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary text-2xl">favorite</span>
+              <span class="font-semibold text-heading">Cardiology</span>
+            </div>
+            <span id="arrow-cardiology"
+              class="material-symbols-outlined text-gray-400 transition-transform">chevron_right</span>
+          </button>
+
+          <!-- Cardiology Submenu -->
+          <div id="submenu-cardiology" class="hidden pl-4 mt-2 space-y-1">
+            <a href="#" class="block px-4 py-2  text-gray-700 hover:bg-slate-50 rounded">Overview</a>
+
+            <div class="relative">
+              <button onclick="toggleSection('cardio-conditions')"
+                class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-slate-50 rounded">
+                <span>Conditions</span>
+                <span id="arrow-cardio-conditions"
+                  class="material-symbols-outlined text-xs transition-transform">chevron_right</span>
+              </button>
+              <div id="section-cardio-conditions" class="hidden pl-4 mt-1 space-y-1">
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Coronary Artery
+                  Disease</a>
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Heart Failure</a>
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Arrhythmia</a>
+              </div>
+            </div>
+
+            <div class="relative">
+              <button onclick="toggleSection('cardio-procedures')"
+                class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-slate-50 rounded">
+                <span>Procedures</span>
+                <span id="arrow-cardio-procedures"
+                  class="material-symbols-outlined text-xs transition-transform">chevron_right</span>
+              </button>
+              <div id="section-cardio-procedures" class="hidden pl-4 mt-1 space-y-1">
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Angioplasty</a>
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Bypass Surgery</a>
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Pacemaker</a>
+              </div>
+            </div>
+
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-slate-50 rounded">Doctors</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-slate-50 rounded">Hospitals</a>
+          </div>
+        </div>
+
+        <!-- Neurology -->
+        <div class="mb-2">
+          <button onclick="toggleDepartment('neurology')"
+            class="w-full flex items-center justify-between px-4 py-3 hover:bg-slate-50 rounded-lg transition-all">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary text-2xl">psychology</span>
+              <span class="font-semibold text-heading">Neurology</span>
+            </div>
+            <span id="arrow-neurology"
+              class="material-symbols-outlined text-gray-400 transition-transform">chevron_right</span>
+          </button>
+
+          <!-- Neurology Submenu -->
+          <div id="submenu-neurology" class="hidden pl-4 mt-2 space-y-1">
+            <a href="#" class="block px-4 py-2  text-gray-700 hover:bg-slate-50 rounded">Overview</a>
+
+            <div class="relative">
+              <button onclick="toggleSection('neuro-conditions')"
+                class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-slate-50 rounded">
+                <span>Conditions</span>
+                <span id="arrow-neuro-conditions"
+                  class="material-symbols-outlined text-xs transition-transform">chevron_right</span>
+              </button>
+              <div id="section-neuro-conditions" class="hidden pl-4 mt-1 space-y-1">
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Stroke</a>
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Epilepsy</a>
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Parkinson's
+                  Disease</a>
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Migraine</a>
+              </div>
+            </div>
+
+            <div class="relative">
+              <button onclick="toggleSection('neuro-procedures')"
+                class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-slate-50 rounded">
+                <span>Procedures</span>
+                <span id="arrow-neuro-procedures"
+                  class="material-symbols-outlined text-xs transition-transform">chevron_right</span>
+              </button>
+              <div id="section-neuro-procedures" class="hidden pl-4 mt-1 space-y-1">
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Brain Surgery</a>
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Spinal Surgery</a>
+                <a href="#" class="block px-4 py-1.5 text-sm text-gray-600 hover:bg-slate-50 rounded">Deep Brain
+                  Stimulation</a>
+              </div>
+            </div>
+
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-slate-50 rounded">Doctors</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-slate-50 rounded">Hospitals</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+  <main class="max-w-7xl mx-auto px-6 py-4">
+
+    <section class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+      <div class="space-y-10">
+        <div class="space-y-8">
+          <div class="inline-flex items-center gap-2 bg-primary/5 border border-primary/20 px-4 py-1.5 rounded-full">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
+            <span class="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Next Gen Healthcare</span>
+          </div>
+          <h2 class="text-6xl md:text-8xl font-serif leading-[1.1] text-heading">
+            Find the care <br /><span class="text-primary italic">you need.</span>
+          </h2>
+          <p class="text-slate-500 text-lg max-w-md leading-relaxed">
+            Experience premium healthcare with world-class specialists and personalized care plans tailored for your
+            well-being.
+          </p>
+        </div>
+        <div
+          class="max-w-5xl bg-white border border-slate-200 rounded-2xl p-2 flex items-center shadow-xl shadow-slate-200/50">
+          <div class="flex items-center gap-2  border-r border-slate-100">
+            <span class="material-symbols-outlined text-slate-400 text-xl">location_on</span>
+            <select
+              class="border-none focus:ring-0 text-slate-900 font-medium bg-transparent cursor-pointer min-w-[120px] appearance-none">
+              <option value="london" selected>Bangalore</option>
+              <option value="ny">Delhi</option>
+              <option value="dubai">Mumbai</option>
+              <option value="mumbai">Bhubneswar</option>
+            </select>
+          </div>
+
+          <div class="flex   flex-1">
+            <input
+              class="border-none focus:ring-0 text-slate-900 font-medium placeholder:text-slate-400 w-full bg-transparent"
+              placeholder="doctors, hospitals symptoms" type="text" />
+          </div>
+
+          <button
+            class="bg-primary text-white px-8 py-3.5 rounded-xl font-bold hover:bg-primary/90 transition-all flex items-center gap-2">
+            Search
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="aspect-square rounded-full overflow-hidden hero-glow border-[12px] border-white p-4 shadow-xl">
+          <div class="w-full h-full rounded-full bg-center bg-cover border border-slate-100"
+            data-alt="Modern doctor smiling with patient" style="background-image: url('assets/img/doc.png');">
+          </div>
+        </div>
+        <div
+          class="absolute bottom-10 -left-6 bg-white border border-slate-100 p-6 rounded-2xl shadow-2xl flex items-center gap-4 max-w-xs">
+          <div class="size-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined font-bold">verified_user</span>
+          </div>
+          <div>
+            <p class="text-xs font-bold text-primary uppercase tracking-widest">Trust Score</p>
+            <p class="text-sm font-medium text-slate-700 italic">"Top rated medical platform in 2024"</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- 2ND FOLD — Your Trusted Healthcare Portal in Bangalore            -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="trusted-portal" class="relative mb-24 py-20 overflow-hidden animated-gradient-bg">
+
+      <!-- ── Floating Decorative Shapes ── -->
+      <div class="absolute top-16 left-10 w-20 h-20 bg-primary/10 rounded-2xl rotate-12 float-shape-1"></div>
+      <div class="absolute top-40 right-16 w-14 h-14 bg-purple-200/30 rounded-full float-shape-2"></div>
+      <div class="absolute bottom-32 left-1/4 w-10 h-10 bg-emerald-200/30 rounded-lg rotate-45 float-shape-3"></div>
+      <div class="absolute bottom-20 right-1/3 w-16 h-16 bg-amber-200/20 rounded-full float-shape-1"></div>
+      <div class="absolute top-1/2 right-8 w-8 h-8 border-2 border-primary/15 rounded-full float-shape-2"></div>
+      <div class="absolute top-28 left-1/3 w-6 h-6 border-2 border-violet-300/20 rounded-lg rotate-12 float-shape-3">
+      </div>
+
+      <!-- ── Glow blobs ── -->
+      <div
+        class="absolute -top-60 -right-60 w-[600px] h-[600px] bg-gradient-to-br from-primary/8 to-blue-300/10 rounded-full blur-3xl pulse-blob">
+      </div>
+      <div
+        class="absolute -bottom-60 -left-60 w-[500px] h-[500px] bg-gradient-to-tr from-purple-200/15 to-pink-200/10 rounded-full blur-3xl pulse-blob"
+        style="animation-delay: 2s;"></div>
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-cyan-100/10 via-transparent to-violet-100/10 rounded-full blur-3xl">
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 lg:px-8">
+
+        <!-- ══ Section Header ══ -->
+        <div class="text-center mb-16 portal-animate">
+          <div
+            class="inline-flex items-center gap-2.5 bg-white/70 backdrop-blur border border-primary/15 px-6 py-2.5 rounded-full mb-7 shadow-sm">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+            </span>
+            <span class="text-xs font-black uppercase tracking-[0.2em] text-primary">Bangalore Healthcare</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl lg:text-[3.5rem] font-serif font-bold text-heading leading-tight mb-5">
+            Your Trusted Healthcare <br class="hidden md:block" />
+            <span class="shimmer-text italic">Portal in Bangalore</span>
+          </h1>
+          <p class="text-slate-500 text-lg max-w-2xl mx-auto leading-relaxed">
+            <em>Find the Best Doctors and Healthcare Services in Bangalore</em>
+          </p>
+          <!-- Centered animated line -->
+          <div class="flex justify-center mt-6">
+            <div class="h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full line-animate">
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ Two-Column Content ══ -->
+        <div class="grid lg:grid-cols-5 gap-14 items-start">
+
+          <!-- ── Left Column — Editorial Content (3/5) ── -->
+          <div class="lg:col-span-3 portal-animate">
+
+            <!-- Glass editorial card -->
+            <div class="glass-card rounded-3xl border border-white/60 p-8 md:p-10 shadow-xl space-y-7">
+
+              <!-- Accent bar -->
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-1.5 bg-gradient-to-r from-primary to-blue-400 rounded-full"></div>
+                <div class="w-6 h-1.5 bg-primary/30 rounded-full"></div>
+                <div class="w-3 h-1.5 bg-primary/15 rounded-full"></div>
+              </div>
+
+              <p class="text-slate-700 text-[1.05rem] leading-[1.85] tracking-wide">
+                When a health concern arises, the first question most people ask is simple:
+                <em class="text-heading font-semibold not-italic bg-primary/5 px-1.5 py-0.5 rounded">
+                  How do I find the best doctor for this?</em>
+                In a city like Bangalore, where there are countless hospitals and specialists, choosing the right
+                medical
+                expert can quickly become overwhelming. Online searches bring up endless names, mixed reviews, and
+                unclear
+                information — leaving patients and caregivers unsure about the next step.
+              </p>
+
+              <p class="text-slate-700 text-[1.05rem] leading-[1.85] tracking-wide">
+                Finding the <strong class="text-heading font-bold">best doctors in Bangalore</strong> is not just about
+                popularity. It's about experience, specialization, hospital support, and clarity in treatment planning.
+                The right choice can make a meaningful difference in outcomes and peace of mind.
+              </p>
+
+              <!-- Highlighted quote block -->
+              <div
+                class="relative bg-gradient-to-br from-primary/[0.06] via-blue-50/80 to-purple-50/40 border border-primary/10 rounded-2xl p-7 my-4 overflow-hidden">
+                <!-- Decorative quote icon -->
+                <div class="absolute -top-2 -left-2 text-primary/10">
+                  <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z" />
+                  </svg>
+                </div>
+                <p class="relative z-10 text-slate-700 text-base leading-[1.9] tracking-wide">
+                  At IQH, we bring over <span
+                    class="text-primary font-extrabold text-lg bg-primary/10 px-2 py-0.5 rounded-md">10 years</span> of
+                  healthcare
+                  coordination experience to help simplify this decision. We connect patients with experienced
+                  specialist
+                  doctors across reputed multi-specialty hospitals in Bangalore, ensuring access to quality
+                  consultations
+                  and structured medical guidance. Beyond simply listing doctors, we assist in understanding treatment
+                  options, arranging appointments, and facilitating second opinions when needed.
+                </p>
+              </div>
+
+              <p class="text-slate-700 text-[1.05rem] leading-[1.85] tracking-wide">
+                Whether you are seeking expert evaluation for a specific condition, planning a surgical procedure, or
+                looking for trusted medical advice, IQH helps you move forward with confidence. Healthcare decisions
+                should feel informed and supported — not confusing or rushed. Our goal is to guide you toward the right
+                medical expertise with clarity, reliability, and professional care at every stage.
+              </p>
+            </div>
+          </div>
+
+          <!-- ── Right Column — Highlight Cards (2/5) ── -->
+          <div class="lg:col-span-2 space-y-5 portal-animate">
+
+            <!-- Card 1: Experience -->
+            <div
+              class="portal-card-stagger group relative bg-white/80 backdrop-blur-sm border border-white/60 rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:border-primary/25 transition-all duration-500 hover:-translate-y-1.5 cursor-pointer overflow-hidden">
+              <!-- Hover gradient overlay -->
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl">
+              </div>
+              <div class="flex items-start gap-4 relative z-10">
+                <div
+                  class="size-14 bg-gradient-to-br from-primary to-blue-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary/25 flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                  <span class="material-symbols-outlined text-2xl">workspace_premium</span>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-heading font-bold text-lg mb-1 group-hover:text-primary transition-colors">10+ Years
+                    of Trust</h4>
+                  <p class="text-slate-500 text-sm leading-relaxed">Over a decade of healthcare coordination experience
+                    connecting patients with the right specialists.</p>
+                </div>
+                <span
+                  class="material-symbols-outlined text-slate-200 group-hover:text-primary group-hover:translate-x-1 transition-all mt-1">arrow_forward</span>
+              </div>
+            </div>
+
+            <!-- Card 2: Specialist Access -->
+            <div
+              class="portal-card-stagger group relative bg-white/80 backdrop-blur-sm border border-white/60 rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:border-emerald-400/25 transition-all duration-500 hover:-translate-y-1.5 cursor-pointer overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-emerald-500/0 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl">
+              </div>
+              <div class="flex items-start gap-4 relative z-10">
+                <div
+                  class="size-14 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-emerald-500/25 flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                  <span class="material-symbols-outlined text-2xl">stethoscope</span>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-heading font-bold text-lg mb-1 group-hover:text-emerald-600 transition-colors">
+                    Specialist
+                    Doctors</h4>
+                  <p class="text-slate-500 text-sm leading-relaxed">Access experienced specialists across reputed
+                    multi-specialty hospitals in Bangalore.</p>
+                </div>
+                <span
+                  class="material-symbols-outlined text-slate-200 group-hover:text-emerald-500 group-hover:translate-x-1 transition-all mt-1">arrow_forward</span>
+              </div>
+            </div>
+
+            <!-- Card 3: Guidance -->
+            <div
+              class="portal-card-stagger group relative bg-white/80 backdrop-blur-sm border border-white/60 rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:border-amber-400/25 transition-all duration-500 hover:-translate-y-1.5 cursor-pointer overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-amber-500/0 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl">
+              </div>
+              <div class="flex items-start gap-4 relative z-10">
+                <div
+                  class="size-14 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-amber-500/25 flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                  <span class="material-symbols-outlined text-2xl">support_agent</span>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-heading font-bold text-lg mb-1 group-hover:text-amber-600 transition-colors">
+                    Structured
+                    Guidance</h4>
+                  <p class="text-slate-500 text-sm leading-relaxed">Helping you understand treatment options, arrange
+                    appointments, and get second opinions.</p>
+                </div>
+                <span
+                  class="material-symbols-outlined text-slate-200 group-hover:text-amber-500 group-hover:translate-x-1 transition-all mt-1">arrow_forward</span>
+              </div>
+            </div>
+
+            <!-- Card 4: Confidence -->
+            <div
+              class="portal-card-stagger group relative bg-white/80 backdrop-blur-sm border border-white/60 rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:border-violet-400/25 transition-all duration-500 hover:-translate-y-1.5 cursor-pointer overflow-hidden">
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-violet-500/0 to-violet-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl">
+              </div>
+              <div class="flex items-start gap-4 relative z-10">
+                <div
+                  class="size-14 bg-gradient-to-br from-purple-500 to-violet-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-purple-500/25 flex-shrink-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                  <span class="material-symbols-outlined text-2xl">verified</span>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-heading font-bold text-lg mb-1 group-hover:text-violet-600 transition-colors">Move
+                    Forward with Confidence</h4>
+                  <p class="text-slate-500 text-sm leading-relaxed">Clarity, reliability, and professional care at
+                    every stage of your healthcare journey.</p>
+                </div>
+                <span
+                  class="material-symbols-outlined text-slate-200 group-hover:text-violet-500 group-hover:translate-x-1 transition-all mt-1">arrow_forward</span>
+              </div>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="pt-3">
+              <button
+                class="w-full group/btn bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary text-white font-bold py-4 px-8 rounded-2xl transition-all duration-500 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.02] flex items-center justify-center gap-3">
+                <span
+                  class="material-symbols-outlined text-xl group-hover/btn:rotate-12 transition-transform duration-300">calendar_month</span>
+                <span>Book Free Consultation</span>
+                <span
+                  class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform duration-300">arrow_forward</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ Stats Counter Bar ══ -->
+        <div class="mt-16 portal-animate">
+          <div class="glass-card rounded-3xl border border-white/60 shadow-xl p-8 md:p-10">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
+              <!-- Stat 1 -->
+              <div class="text-center group">
+                <div class="flex items-center justify-center gap-1 mb-2">
+                  <span
+                    class="stat-counter text-4xl md:text-5xl font-extrabold bg-gradient-to-br from-primary to-blue-600 bg-clip-text text-transparent"
+                    data-target="10" data-suffix="+">10+</span>
+                </div>
+                <p class="text-slate-500 text-sm font-semibold uppercase tracking-wider">Years Experience</p>
+                <div
+                  class="w-8 h-1 bg-gradient-to-r from-primary to-blue-400 rounded-full mx-auto mt-3 group-hover:w-16 transition-all duration-500">
+                </div>
+              </div>
+              <!-- Stat 2 -->
+              <div class="text-center group">
+                <div class="flex items-center justify-center gap-1 mb-2">
+                  <span
+                    class="stat-counter text-4xl md:text-5xl font-extrabold bg-gradient-to-br from-emerald-500 to-teal-600 bg-clip-text text-transparent"
+                    data-target="500" data-suffix="+">30+</span>
+                </div>
+                <p class="text-slate-500 text-sm font-semibold uppercase tracking-wider">Expert Doctors</p>
+                <div
+                  class="w-8 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full mx-auto mt-3 group-hover:w-16 transition-all duration-500">
+                </div>
+              </div>
+              <!-- Stat 3 -->
+              <div class="text-center group">
+                <div class="flex items-center justify-center gap-1 mb-2">
+                  <span
+                    class="stat-counter text-4xl md:text-5xl font-extrabold bg-gradient-to-br from-amber-500 to-orange-500 bg-clip-text text-transparent"
+                    data-target="50" data-suffix="+">10+</span>
+                </div>
+                <p class="text-slate-500 text-sm font-semibold uppercase tracking-wider">Hospitals</p>
+                <div
+                  class="w-8 h-1 bg-gradient-to-r from-amber-500 to-orange-400 rounded-full mx-auto mt-3 group-hover:w-16 transition-all duration-500">
+                </div>
+              </div>
+              <!-- Stat 4 -->
+              <div class="text-center group">
+                <div class="flex items-center justify-center gap-1 mb-2">
+                  <span
+                    class="stat-counter text-4xl md:text-5xl font-extrabold bg-gradient-to-br from-purple-500 to-violet-600 bg-clip-text text-transparent"
+                    data-target="10000" data-suffix="+">2000+</span>
+                </div>
+                <p class="text-slate-500 text-sm font-semibold uppercase tracking-wider">Happy Patients</p>
+                <div
+                  class="w-8 h-1 bg-gradient-to-r from-purple-500 to-violet-500 rounded-full mx-auto mt-3 group-hover:w-16 transition-all duration-500">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-8 mb-24 max-w-7xl mx-auto px-4">
+      <!-- Book Appointment Card -->
+      <div
+        class="group relative overflow-hidden bg-gradient-to-br from-blue-50 to-white rounded-3xl border border-blue-100 p-8 hover:shadow-2xl transition-all duration-500 cursor-pointer">
+        <!-- Decorative elements -->
+        <div
+          class="absolute top-0 right-0 w-40 h-40 bg-blue-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:scale-150 transition-transform duration-700">
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-32 h-32 bg-yellow-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:scale-125 transition-transform duration-700">
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center gap-6 relative z-10">
+          <!-- Doctor Image -->
+          <div
+            class="flex-shrink-0 w-48 h-48 rounded-2xl overflow-hidden bg-slate-100 ring-4 ring-white shadow-xl group-hover:scale-105 transition-transform duration-500">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=400&fit=crop" alt="Doctor"
+              class="w-full h-full object-cover" />
+          </div>
+
+          <!-- Content -->
+          <div class="flex-1 text-center md:text-left">
+            <div class="inline-block mb-2">
+              <span
+                class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">In-Person</span>
+            </div>
+            <h4 class="text-3xl font-bold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors">Book
+              Appointment</h4>
+            <p class="text-slate-600 mb-6 text-base">For hospital consultations and admissions with expert doctors.</p>
+            <button
+              class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 px-8 py-3.5 rounded-xl font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto md:mx-0 group/btn">
+              <svg class="w-5 h-5 group-hover/btn:rotate-12 transition-transform" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span>Find Doctors Now</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Consultation Card -->
+      <div
+        class="group relative overflow-hidden bg-gradient-to-br from-purple-50 to-white rounded-3xl border border-purple-100 p-8 hover:shadow-2xl transition-all duration-500 cursor-pointer">
+        <!-- Decorative elements -->
+        <div
+          class="absolute top-0 right-0 w-40 h-40 bg-purple-100 rounded-full -mr-20 -mt-20 opacity-50 group-hover:scale-150 transition-transform duration-700">
+        </div>
+        <div
+          class="absolute bottom-0 left-0 w-32 h-32 bg-yellow-100 rounded-full -ml-16 -mb-16 opacity-30 group-hover:scale-125 transition-transform duration-700">
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center gap-6 relative z-10">
+          <!-- Video Consultation Image -->
+          <div
+            class="flex-shrink-0 w-48 h-48 rounded-2xl overflow-hidden bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center ring-4 ring-white shadow-xl group-hover:scale-105 transition-transform duration-500">
+            <img src="assets/img/video.png" alt="">
+          </div>
+
+          <!-- Content -->
+          <div class="flex-1 text-center md:text-left">
+            <div class="inline-block mb-2">
+              <span
+                class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Online</span>
+            </div>
+            <h4 class="text-3xl font-bold text-slate-800 mb-2 group-hover:text-purple-600 transition-colors">Tele/Video
+              Consultation</h4>
+            <p class="text-slate-600 mb-6 text-base">Fast, easy and secure virtual healthcare from home.</p>
+            <button
+              class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-slate-900 px-8 py-3.5 rounded-xl font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto md:mx-0 group/btn">
+              <svg class="w-5 h-5 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+              <span>Book Now</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+
+        <div
+          class="bg-white border border-slate-100 p-8 rounded-3xl hover:border-primary/30 transition-all group cursor-pointer shadow-sm text-center"
+          style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+          <div class="size-20 mx-auto mb-6 group-hover:scale-110 transition-transform flex items-center justify-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Medical Expert"
+              class="w-full h-full object-contain" />
+          </div>
+          <h5 class="font-bold text-lg text-heading mb-1">Talk to Medical Expert</h5>
+          <p class="text-xs text-slate-400 uppercase tracking-widest font-black">Mental Health</p>
+        </div>
+
+        <div
+          class="bg-white border border-slate-100 p-8 rounded-3xl hover:border-primary/30 transition-all group cursor-pointer shadow-sm text-center"
+          style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+          <div class="size-20 mx-auto mb-6 group-hover:scale-110 transition-transform flex items-center justify-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/2761/2761118.png" alt="Treatment Cost"
+              class="w-full h-full object-contain" />
+          </div>
+          <h5 class="font-bold text-lg text-heading mb-1">Treatment Cost</h5>
+          <p class="text-xs text-slate-400 uppercase tracking-widest font-black">Transparency</p>
+        </div>
+
+        <div
+          class="bg-white border border-slate-100 p-8 rounded-3xl hover:border-primary/30 transition-all group cursor-pointer shadow-sm text-center"
+          style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+          <div class="size-20 mx-auto mb-6 group-hover:scale-110 transition-transform flex items-center justify-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/3022/3022588.png" alt="Diagnostic Tests"
+              class="w-full h-full object-contain" />
+          </div>
+          <h5 class="font-bold text-lg text-heading mb-1">Book Diagnostic Tests</h5>
+          <p class="text-xs text-slate-400 uppercase tracking-widest font-black">Home Sample</p>
+        </div>
+
+        <div
+          class="bg-white border border-slate-100 p-8 rounded-3xl hover:border-primary/30 transition-all group cursor-pointer shadow-sm text-center"
+          style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+          <div class="size-20 mx-auto mb-6 group-hover:scale-110 transition-transform flex items-center justify-center">
+            <img src="https://cdn-icons-png.flaticon.com/512/822/822143.png" alt="Order Medicine"
+              class="w-full h-full object-contain" />
+          </div>
+          <h5 class="font-bold text-lg text-heading mb-1">Get Second Opinion</h5>
+          <p class="text-xs text-slate-400 uppercase tracking-widest font-black">Fast Delivery</p>
+        </div>
+
+      </div>
+
+      <div class="flex justify-end pr-4">
+        <a href="#" class="text-blue-600 font-bold text-sm hover:underline flex items-center gap-1">
+          Browse All
+        </a>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SPECIALIST DOCTORS — Connect with Experienced Specialists         -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section id="specialist-doctors" class="relative mb-24 py-16 overflow-hidden">
+      <!-- Decorative background -->
+      <div class="absolute inset-0 bg-gradient-to-b from-white via-slate-50/50 to-white"></div>
+      <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent">
+      </div>
+      <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent">
+      </div>
+      <!-- Floating accents -->
+      <div class="absolute top-20 right-20 w-72 h-72 bg-primary/[0.03] rounded-full blur-3xl"></div>
+      <div class="absolute bottom-10 left-10 w-56 h-56 bg-emerald-100/20 rounded-full blur-3xl"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 lg:px-8">
+
+        <div class="grid lg:grid-cols-2 gap-10 items-start">
+
+          <!-- Left Column — Content -->
+          <div class="portal-animate space-y-7">
+            <!-- Badge -->
+            <div
+              class="inline-flex items-center gap-2.5 bg-white border border-primary/15 px-5 py-2 rounded-full shadow-sm">
+              <span class="material-symbols-outlined text-primary text-lg">local_hospital</span>
+              <span class="text-xs font-black uppercase tracking-[0.2em] text-primary">Expert Network</span>
+            </div>
+
+            <!-- Heading -->
+            <h2 class="text-3xl md:text-4xl lg:text-[2.75rem] font-serif font-bold text-heading leading-tight">
+              Connect with Experienced<br />
+              <span class="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">Specialist
+                Doctors</span>
+              in Bangalore
+            </h2>
+
+            <!-- Description -->
+            <p class="text-slate-600 text-[1.05rem] leading-[1.85] tracking-wide">
+              IQH helps you connect with some of the best doctors in Bangalore across leading specialties. Every doctor
+              in our network brings strong clinical experience, established hospital affiliations, and a patient-focused
+              approach to care.
+            </p>
+
+            <!-- Highlighted stat -->
+            <div
+              class="flex items-center gap-5 bg-gradient-to-r from-primary/[0.05] to-blue-50/60 border border-primary/10 rounded-2xl p-5">
+              <div
+                class="size-14 bg-gradient-to-br from-primary to-blue-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary/20 flex-shrink-0">
+                <span class="material-symbols-outlined text-2xl">clinical_notes</span>
+              </div>
+              <p class="text-slate-700 text-[0.92rem] leading-relaxed">
+                We carefully work with specialists who have
+                <strong class="text-primary font-extrabold">15+ years</strong> of experience in their respective fields,
+                ensuring you receive expert medical evaluation and treatment guidance.
+              </p>
+            </div>
+
+            <!-- CTA -->
+            <div class="flex flex-wrap gap-4 pt-2">
+              <button
+                class="group bg-gradient-to-r from-primary to-blue-600 hover:from-blue-600 hover:to-primary text-white font-bold py-3.5 px-8 rounded-xl transition-all duration-500 shadow-lg shadow-primary/20 hover:shadow-xl hover:scale-[1.03] flex items-center gap-2.5">
+                <span
+                  class="material-symbols-outlined text-lg group-hover:rotate-12 transition-transform duration-300">search</span>
+                <span>Find a Specialist</span>
+                <span
+                  class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform duration-300">arrow_forward</span>
+              </button>
+              <button
+                class="group border-2 border-slate-200 hover:border-primary/40 text-heading font-bold py-3.5 px-8 rounded-xl transition-all duration-300 hover:bg-primary/[0.03] flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg text-primary">call</span>
+                <span>Talk to Us</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column — Specialty Cards Grid -->
+          <div class="portal-animate">
+            <!-- Section heading for cards -->
+            <div class="mb-6">
+              <h3 class="text-2xl md:text-[1.7rem] font-serif font-bold text-heading leading-snug mb-2">
+                Specialist Healthcare Services in Bangalore
+              </h3>
+              <div class="w-10 h-1 bg-gradient-to-r from-primary to-blue-400 rounded-full mb-3"></div>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                We provide access to experienced doctors across major departments:
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+
+              <!-- Orthopedics -->
+              <div
+                class="group relative bg-white rounded-2xl border border-slate-100 p-5 shadow-sm hover:shadow-xl hover:border-primary/20 transition-all duration-400 hover:-translate-y-1 cursor-pointer overflow-hidden">
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-blue-500/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl">
+                </div>
+                <div class="relative z-10">
+                  <div
+                    class="size-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center text-white shadow-md mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                    <span class="material-symbols-outlined">orthopedics</span>
+                  </div>
+                  <h4 class="text-heading font-bold text-sm mb-1 group-hover:text-blue-600 transition-colors">
+                    Orthopedic Specialist</h4>
+                  <p class="text-slate-400 text-[14px] leading-relaxed">Comprehensive care for joint pain, fractures,
+                    sports
+                    injuries, arthritis, and joint replacement surgeries.
+                  </p>
+                  <div
+                    class="flex items-center gap-1 mt-3 text-blue-500 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+                    <span class="text-xs font-semibold">Consult Now</span>
+                    <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Cardiology -->
+              <div
+                class="group relative bg-white rounded-2xl border border-slate-100 p-5 shadow-sm hover:shadow-xl hover:border-rose-400/20 transition-all duration-400 hover:-translate-y-1 cursor-pointer overflow-hidden">
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-rose-500/0 to-rose-500/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl">
+                </div>
+                <div class="relative z-10">
+                  <div
+                    class="size-12 bg-gradient-to-br from-rose-500 to-red-500 rounded-xl flex items-center justify-center text-white shadow-md mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                    <span class="material-symbols-outlined">nephrology</span>
+                  </div>
+                  <h4 class="text-heading font-bold text-sm mb-1 group-hover:text-rose-600 transition-colors">Urologists
+                  </h4>
+                  <p class="text-slate-400 text-[14px] leading-relaxed">Advanced treatment for kidney stones, prostate
+                    conditions, urinary disorders, and minimally invasive procedures.</p>
+                  <div
+                    class="flex items-center gap-1 mt-3 text-rose-500 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+                    <span class="text-xs font-semibold">Consult Now</span>
+                    <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Neurology -->
+              <div
+                class="group relative bg-white rounded-2xl border border-slate-100 p-5 shadow-sm hover:shadow-xl hover:border-purple-400/20 transition-all duration-400 hover:-translate-y-1 cursor-pointer overflow-hidden">
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl">
+                </div>
+                <div class="relative z-10">
+                  <div
+                    class="size-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-xl flex items-center justify-center text-white shadow-md mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                    <span class="material-symbols-outlined">pregnant_woman</span>
+                  </div>
+                  <h4 class="text-heading font-bold text-sm mb-1 group-hover:text-purple-600 transition-colors">
+                    Gynecologists </h4>
+                  <p class="text-slate-400 text-[14px] leading-relaxed">Women’s healthcare services including
+                    infertility
+                    treatment, PCOS management, pregnancy care, and reproductive health.</p>
+                  <div
+                    class="flex items-center gap-1 mt-3 text-purple-500 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+                    <span class="text-xs font-semibold">Consult Now</span>
+                    <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Gastroenterology -->
+              <div
+                class="group relative bg-white rounded-2xl border border-slate-100 p-5 shadow-sm hover:shadow-xl hover:border-amber-400/20 transition-all duration-400 hover:-translate-y-1 cursor-pointer overflow-hidden">
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-amber-500/0 to-amber-500/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl">
+                </div>
+                <div class="relative z-10">
+                  <div
+                    class="size-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-xl flex items-center justify-center text-white shadow-md mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                    <span class="material-symbols-outlined">med_card_membership</span>
+                  </div>
+                  <h4 class="text-heading font-bold text-sm mb-1 group-hover:text-amber-600 transition-colors">
+                    Proctologists </h4>
+                  <p class="text-slate-400 text-[14px] leading-relaxed">Specialized treatment for piles, fissures,
+                    fistula,
+                    and other colorectal conditions using modern surgical techniques.</p>
+                  <div
+                    class="flex items-center gap-1 mt-3 text-amber-500 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+                    <span class="text-xs font-semibold">Consult Now</span>
+                    <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Oncology -->
+              <div
+                class="group relative bg-white rounded-2xl border border-slate-100 p-5 shadow-sm hover:shadow-xl hover:border-emerald-400/20 transition-all duration-400 hover:-translate-y-1 cursor-pointer overflow-hidden">
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-emerald-500/0 to-emerald-500/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl">
+                </div>
+                <div class="relative z-10">
+                  <div
+                    class="size-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center text-white shadow-md mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                    <span class="material-symbols-outlined">surgical</span>
+                  </div>
+                  <h4 class="text-heading font-bold text-sm mb-1 group-hover:text-emerald-600 transition-colors">
+                    General Surgeons </h4>
+                  <p class="text-slate-400 text-[14px] leading-relaxed">Expert surgical care including hernia repair,
+                    gallbladder surgery, appendix removal, and laparoscopic procedures.</p>
+                  <div
+                    class="flex items-center gap-1 mt-3 text-emerald-500 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0">
+                    <span class="text-xs font-semibold">Consult Now</span>
+                    <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+
+            <!-- View all link -->
+            <div class="flex justify-center mt-6">
+              <a href="#"
+                class="group inline-flex items-center gap-2 text-primary font-bold text-sm hover:gap-3 transition-all duration-300">
+                <span>View All Specialties</span>
+                <span
+                  class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section class="mb-24 mt-24 max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <div class="inline-block mb-4">
+          <span class="bg-blue-50 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold">Our Services</span>
+        </div>
+        <h3 class="text-4xl md:text-5xl font-bold text-slate-800 mb-4">Simplifying Procedures</h3>
+        <p class="text-slate-600 text-lg max-w-2xl mx-auto">Hassle-free surgical experience with top-tier insurance
+          support and world-class medical care.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+
+        <!-- Knee Replacement -->
+        <div
+          class="group relative bg-gradient-to-br from-white to-blue-50 rounded-2xl shadow-md border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-blue-100 rounded-full -mr-16 -mt-16 opacity-50 group-hover:scale-150 transition-transform duration-500">
+          </div>
+          <div class="flex items-center p-6 relative z-10">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-[#164eab] to-[#2563eb] flex items-center justify-center rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <div class="ml-5 flex-1">
+              <h6 class="text-slate-800 font-bold text-base mb-1">Knee Replacement</h6>
+              <p class="text-slate-500 text-xs">Advanced joint care</p>
+            </div>
+            <svg class="w-5 h-5 text-slate-300 group-hover:text-blue-600 group-hover:translate-x-1 transition-all"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Liver Transplant -->
+        <div
+          class="group relative bg-gradient-to-br from-white to-pink-50 rounded-2xl shadow-md border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-pink-100 rounded-full -mr-16 -mt-16 opacity-50 group-hover:scale-150 transition-transform duration-500">
+          </div>
+          <div class="flex items-center p-6 relative z-10">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-[#b92c63] to-[#ec4899] flex items-center justify-center rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+            </div>
+            <div class="ml-5 flex-1">
+              <h6 class="text-slate-800 font-bold text-base mb-1">Liver Transplant</h6>
+              <p class="text-slate-500 text-xs">Life-saving procedure</p>
+            </div>
+            <svg class="w-5 h-5 text-slate-300 group-hover:text-pink-600 group-hover:translate-x-1 transition-all"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Laparoscopic Cholecystectomy -->
+        <div
+          class="group relative bg-gradient-to-br from-white to-orange-50 rounded-2xl shadow-md border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-full -mr-16 -mt-16 opacity-50 group-hover:scale-150 transition-transform duration-500">
+          </div>
+          <div class="flex items-center p-6 relative z-10">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-[#d16e2d] to-[#f97316] flex items-center justify-center rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+              </svg>
+            </div>
+            <div class="ml-5 flex-1">
+              <h6 class="text-slate-800 font-bold text-base mb-1">Laparoscopic Surgery</h6>
+              <p class="text-slate-500 text-xs">Minimally invasive</p>
+            </div>
+            <svg class="w-5 h-5 text-slate-300 group-hover:text-orange-600 group-hover:translate-x-1 transition-all"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Coronary Angioplasty -->
+        <div
+          class="group relative bg-gradient-to-br from-white to-cyan-50 rounded-2xl shadow-md border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-cyan-100 rounded-full -mr-16 -mt-16 opacity-50 group-hover:scale-150 transition-transform duration-500">
+          </div>
+          <div class="flex items-center p-6 relative z-10">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-[#118dce] to-[#06b6d4] flex items-center justify-center rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+            </div>
+            <div class="ml-5 flex-1">
+              <h6 class="text-slate-800 font-bold text-base mb-1">Coronary Angioplasty</h6>
+              <p class="text-slate-500 text-xs">Heart care excellence</p>
+            </div>
+            <svg class="w-5 h-5 text-slate-300 group-hover:text-cyan-600 group-hover:translate-x-1 transition-all"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Breast Cancer Surgery -->
+        <div
+          class="group relative bg-gradient-to-br from-white to-amber-50 rounded-2xl shadow-md border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-amber-100 rounded-full -mr-16 -mt-16 opacity-50 group-hover:scale-150 transition-transform duration-500">
+          </div>
+          <div class="flex items-center p-6 relative z-10">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-[#b5a329] to-[#eab308] flex items-center justify-center rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div class="ml-5 flex-1">
+              <h6 class="text-slate-800 font-bold text-base mb-1">Breast Cancer Surgery</h6>
+              <p class="text-slate-500 text-xs">Comprehensive care</p>
+            </div>
+            <svg class="w-5 h-5 text-slate-300 group-hover:text-amber-600 group-hover:translate-x-1 transition-all"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- Kidney Transplant -->
+        <div
+          class="group relative bg-gradient-to-br from-white to-emerald-50 rounded-2xl shadow-md border border-slate-100 overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-emerald-100 rounded-full -mr-16 -mt-16 opacity-50 group-hover:scale-150 transition-transform duration-500">
+          </div>
+          <div class="flex items-center p-6 relative z-10">
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-[#14a973] to-[#10b981] flex items-center justify-center rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+              </svg>
+            </div>
+            <div class="ml-5 flex-1">
+              <h6 class="text-slate-800 font-bold text-base mb-1">Kidney Transplant</h6>
+              <p class="text-slate-500 text-xs">Expert transplantation</p>
+            </div>
+            <svg class="w-5 h-5 text-slate-300 group-hover:text-emerald-600 group-hover:translate-x-1 transition-all"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="flex justify-center">
+        <button
+          class="group relative bg-gradient-to-r from-[#118dce] to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold py-4 px-12 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex items-center gap-2">
+          <span>View All Procedures</span>
+          <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Second Opinion & Treatment Guidance Section                        -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="mb-32 mt-32 max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Left: Content -->
+        <div>
+          <div class="inline-flex items-center gap-2 mb-6">
+            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600">
+              <span class="material-symbols-outlined text-2xl">forum</span>
+            </div>
+            <div class="h-px w-16 bg-gradient-to-r from-purple-200 to-transparent"></div>
+            <span class="text-sm font-bold text-purple-700 tracking-wide uppercase">Expert Advice</span>
+          </div>
+
+          <h3 class="text-3xl md:text-5xl font-serif font-bold text-heading mb-6 leading-tight">
+            Second Opinion & <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">Treatment
+              Guidance</span>
+          </h3>
+
+          <p class="text-slate-600 text-lg leading-relaxed mb-6">
+            Before making important medical decisions, seeking a second opinion from experienced specialists can provide
+            clarity and reassurance.
+          </p>
+          <p class="text-slate-600 text-lg leading-relaxed mb-8">
+            IQH helps you connect with senior doctors in Bangalore who can review diagnoses, explain treatment options,
+            and help you understand surgical recommendations. We ensure that you receive balanced information so you can
+            make confident healthcare decisions.
+          </p>
+
+          <button
+            class="group bg-heading text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition-all flex items-center gap-2 shadow-xl shadow-slate-200">
+            Get a Second Opinion
+            <span
+              class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </button>
+        </div>
+
+        <!-- Right: Image with Overlay -->
+        <div class="relative group">
+          <div
+            class="absolute inset-0 bg-purple-200 rounded-[2.5rem] rotate-6 scale-95 opacity-40 group-hover:rotate-3 transition-transform duration-500">
+          </div>
+          <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-[8px] border-white">
+            <img
+              src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+              alt="Doctor consulting with patient"
+              class="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-700">
+            <!-- Floating Glass Card -->
+            <div
+              class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-white/50 shadow-lg">
+              <div class="flex items-center gap-4">
+                <div
+                  class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-600 shrink-0">
+                  <span class="material-symbols-outlined">verified_user</span>
+                </div>
+                <div>
+                  <p class="font-bold text-heading text-lg">Verified Specialists</p>
+                  <p class="text-sm text-slate-500">Board-certified doctors from top hospitals</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Hospital Coordination & Patient Support Section                    -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Hospital Coordination & Patient Support Section                    -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="mb-32 max-w-7xl mx-auto px-6 relative">
+      <!-- Decorative Background Text -->
+      <div class="absolute top-0 right-0 -mr-20 -mt-20 opacity-[0.03] pointer-events-none select-none overflow-hidden">
+        <span class="text-[200px] font-bold font-serif">Care</span>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <!-- Left: Image with Organic Shapes -->
+        <div class="relative group order-2 lg:order-1">
+          <!-- Organic Blob Background -->
+          <div class="absolute inset-0 bg-emerald-100 rounded-[3rem] scale-110 -rotate-2 opacity-50 blur-xl"></div>
+          <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-dashed border-emerald-200 rounded-full animate-[spin_60s_linear_infinite] opacity-30">
+          </div>
+
+          <!-- Main Image -->
+          <div
+            class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-[8px] border-white/50 backdrop-blur-sm">
+            <img src="assets/img/consult.png" alt="Hospital coordination team"
+              class="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-700">
+
+            <!-- Floating 'Concierge' Card -->
+            <div
+              class="absolute bottom-8 left-8 bg-white/95 backdrop-blur shadow-2xl p-4 pr-8 rounded-2xl flex items-center gap-4 border-l-4 border-emerald-500 transform hover:translate-y-[-5px] transition-transform">
+              <div
+                class="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 shadow-inner">
+                <span class="material-symbols-outlined">concierge</span>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Your Partner</p>
+                <p class="text-lg font-bold text-heading">Personal Care Coordinator</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating Orbit Element -->
+          <div class="absolute -top-10 -right-10 z-20 bg-white p-4 rounded-full shadow-xl animate-bounce"
+            style="animation-duration: 4s;">
+            <span class="material-symbols-outlined text-4xl text-emerald-500">add_task</span>
+          </div>
+        </div>
+
+        <!-- Right: The Journey Timeline -->
+        <div class="order-1 lg:order-2 pl-4">
+          <div
+            class="inline-flex items-center gap-2 mb-6 bg-gradient-to-r from-emerald-50 to-transparent pr-6 py-1 rounded-full">
+            <div
+              class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white shadow-lg shadow-emerald-200">
+              <span class="material-symbols-outlined text-sm">handshake</span>
+            </div>
+            <span class="text-xs font-bold text-emerald-800 tracking-wide uppercase">Full Patient Support</span>
+          </div>
+
+          <h3 class="text-3xl md:text-5xl font-serif font-bold text-heading mb-6 leading-tight">
+            Seamless Coordination per <br>
+            <span class="relative inline-block">
+              <span class="relative z-10 text-emerald-700">Patient Needs</span>
+              <span class="absolute bottom-2 left-0 w-full h-3 bg-emerald-100/50 -rotate-1 -z-10"></span>
+            </span>
+          </h3>
+
+          <p class="text-slate-600 text-lg leading-relaxed mb-10">
+            Finding the best doctors in Bangalore is only one part of the journey. Navigating hospital systems,
+            scheduling appointments, and understanding treatment processes can feel equally challenging.
+          </p>
+
+          <p class="text-slate-800 font-bold text-lg mb-6">IQH supports you with:</p>
+
+          <!-- Timeline Process -->
+          <div class="relative space-y-8 mb-10">
+            <!-- Connector Line -->
+            <div
+              class="absolute left-[19px] top-4 bottom-4 w-0.5 bg-gradient-to-b from-emerald-200 via-emerald-100 to-transparent">
+            </div>
+
+            <!-- Item 1 -->
+            <div class="relative flex items-center gap-6 group">
+              <div
+                class="relative z-10 w-10 h-10 rounded-full bg-white border-4 border-emerald-50 shadow-md flex items-center justify-center shrink-0 group-hover:border-emerald-200 group-hover:scale-110 transition-all">
+                <span class="material-symbols-outlined text-emerald-600 text-sm">calendar_month</span>
+              </div>
+              <div
+                class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 w-full hover:shadow-md transition-shadow group-hover:border-emerald-100">
+                <span class="text-slate-700 font-bold text-lg">Appointment coordination</span>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="relative flex items-center gap-6 group">
+              <div
+                class="relative z-10 w-10 h-10 rounded-full bg-white border-4 border-emerald-50 shadow-md flex items-center justify-center shrink-0 group-hover:border-emerald-200 group-hover:scale-110 transition-all">
+                <span class="material-symbols-outlined text-emerald-600 text-sm">local_hospital</span>
+              </div>
+              <div
+                class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 w-full hover:shadow-md transition-shadow group-hover:border-emerald-100">
+                <span class="text-slate-700 font-bold text-lg">Hospital admission assistance</span>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="relative flex items-center gap-6 group">
+              <div
+                class="relative z-10 w-10 h-10 rounded-full bg-white border-4 border-emerald-50 shadow-md flex items-center justify-center shrink-0 group-hover:border-emerald-200 group-hover:scale-110 transition-all">
+                <span class="material-symbols-outlined text-emerald-600 text-sm">timeline</span>
+              </div>
+              <div
+                class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 w-full hover:shadow-md transition-shadow group-hover:border-emerald-100">
+                <span class="text-slate-700 font-bold text-lg">Treatment planning support</span>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="relative flex items-center gap-6 group">
+              <div
+                class="relative z-10 w-10 h-10 rounded-full bg-white border-4 border-emerald-50 shadow-md flex items-center justify-center shrink-0 group-hover:border-emerald-200 group-hover:scale-110 transition-all">
+                <span class="material-symbols-outlined text-emerald-600 text-sm">sms</span>
+              </div>
+              <div
+                class="bg-white p-4 rounded-xl shadow-sm border border-slate-100 w-full hover:shadow-md transition-shadow group-hover:border-emerald-100">
+                <span class="text-slate-700 font-bold text-lg">Clear communication at every step</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div
+            class="relative pl-6 border-l-4 border-emerald-400 italic text-emerald-800 bg-gradient-to-r from-emerald-50/50 to-transparent p-4 rounded-r-xl">
+            "Our focus is to make your healthcare journey structured, transparent, and stress-free."
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- Why Choose IQH Section (Video Background)                          -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="relative w-screen ml-[calc(50%-50vw)] py-24 overflow-hidden">
+      <!-- Background Video -->
+      <div class="absolute inset-0 z-0">
+        <video autoplay muted loop playsinline class="w-full h-full object-cover"
+          poster="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=1920&q=80">
+          <source
+            src="https://assets.mixkit.co/videos/preview/mixkit-doctors-walking-in-hospital-corridor-4943-large.mp4"
+            type="video/mp4">
+        </video>
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-[1px]"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <div
+            class="inline-flex items-center gap-2 mb-4 bg-white/10 border border-white/20 px-5 py-1.5 rounded-full backdrop-blur-md">
+            <span class="material-symbols-outlined text-emerald-400 text-sm">stars</span>
+            <span class="text-xs font-bold uppercase tracking-wider text-white">Our Commitments</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6">Why Choose IQH?</h2>
+          <div class="h-1 w-24 bg-gradient-to-r from-emerald-500 to-teal-500 mx-auto rounded-full"></div>
+        </div>
+
+        <!-- Content Row -->
+        <div class="grid md:grid-cols-4 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/20">
+
+          <!-- Item 1: Experience -->
+          <div class="text-center px-4 pt-4 md:pt-0">
+            <div
+              class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 backdrop-blur border border-white/20 mb-6 text-emerald-400">
+              <span class="material-symbols-outlined text-3xl">history_edu</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">10+ Years Exp.</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">Deep understanding of hospital workflows & coordination.
+            </p>
+          </div>
+
+          <!-- Item 2: Doctors -->
+          <div class="text-center px-4 pt-4 md:pt-0">
+            <div
+              class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 backdrop-blur border border-white/20 mb-6 text-blue-400">
+              <span class="material-symbols-outlined text-3xl">verified_user</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Verified Experts</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">Top specialists from reputed multi-specialty hospitals.
+            </p>
+          </div>
+
+          <!-- Item 3: Ethics -->
+          <div class="text-center px-4 pt-4 md:pt-0">
+            <div
+              class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 backdrop-blur border border-white/20 mb-6 text-purple-400">
+              <span class="material-symbols-outlined text-3xl">balance</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Ethical Approach</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">Transparent guidance without unnecessary delays.</p>
+          </div>
+
+          <!-- Item 4: Support -->
+          <div class="text-center px-4 pt-4 md:pt-0">
+            <div
+              class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 backdrop-blur border border-white/20 mb-6 text-orange-400">
+              <span class="material-symbols-outlined text-3xl">diversity_1</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-3">Dedicated Support</h3>
+            <p class="text-slate-300 text-sm leading-relaxed">Real people assisting you throughout your journey.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Trusted Brands Marquee -->
+    <section class="py-20 bg-slate-50 border-t border-slate-200 overflow-hidden relative">
+      <div class="max-w-7xl mx-auto px-6 mb-12 text-center">
+        <p class="text-sm font-bold text-primary tracking-widest uppercase mb-3">Trusted Partner Network</p>
+        <h3 class="text-3xl md:text-4xl font-serif font-bold text-slate-900">India's Leading Healthcare Providers</h3>
+      </div>
+
+      <div class="relative w-full overflow-hidden">
+        <!-- Fade Gradients -->
+        <div
+          class="absolute left-0 top-0 bottom-0 w-40 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none">
+        </div>
+        <div
+          class="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none">
+        </div>
+
+        <!-- Scrolling Track -->
+        <div class="flex items-center gap-10 w-max animate-scroll pl-10">
+          <!-- Brand Set 1 -->
+          <!-- Item 1: Apollo -->
+          <div
+            class="h-24 px-8 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 min-w-[240px] justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div class="size-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+              <span class="material-symbols-outlined text-3xl">local_hospital</span>
+            </div>
+            <span class="text-xl font-bold text-slate-700 font-display">Apollo</span>
+          </div>
+
+          <!-- Item 2: Fortis -->
+          <div
+            class="h-24 px-8 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 min-w-[240px] justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div class="size-12 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
+              <span class="material-symbols-outlined text-3xl">ecg_heart</span>
+            </div>
+            <span class="text-xl font-bold text-slate-700 font-display">Fortis</span>
+          </div>
+
+          <!-- Item 3: Manipal -->
+          <div
+            class="h-24 px-8 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 min-w-[240px] justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div class="size-12 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0">
+              <span class="material-symbols-outlined text-3xl">medical_services</span>
+            </div>
+            <span class="text-xl font-bold text-slate-700 font-display">Manipal</span>
+          </div>
+
+          <!-- Item 4: Narayana -->
+          <div
+            class="h-24 px-8 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 min-w-[240px] justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div class="size-12 rounded-full bg-rose-50 flex items-center justify-center text-rose-600 shrink-0">
+              <span class="material-symbols-outlined text-3xl">healing</span>
+            </div>
+            <span class="text-xl font-bold text-slate-700 font-display">Narayana</span>
+          </div>
+
+          <!-- Item 5: Max -->
+          <div
+            class="h-24 px-8 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 min-w-[240px] justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div class="size-12 rounded-full bg-amber-50 flex items-center justify-center text-amber-600 shrink-0">
+              <span class="material-symbols-outlined text-3xl">medication</span>
+            </div>
+            <span class="text-xl font-bold text-slate-700 font-display">Max</span>
+          </div>
+
+          <!-- Item 6: Aster -->
+          <div
+            class="h-24 px-8 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 min-w-[240px] justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div class="size-12 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 shrink-0">
+              <span class="material-symbols-outlined text-3xl">health_and_safety</span>
+            </div>
+            <span class="text-xl font-bold text-slate-700 font-display">Aster</span>
+          </div>
+
+          <!-- Item 7: Sakra -->
+          <div
+            class="h-24 px-8 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 min-w-[240px] justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div class="size-12 rounded-full bg-cyan-50 flex items-center justify-center text-cyan-600 shrink-0">
+              <span class="material-symbols-outlined text-3xl">biotech</span>
+            </div>
+            <span class="text-xl font-bold text-slate-700 font-display">Sakra</span>
+          </div>
+
+          <!-- Brand Set 2 (Duplicate for Seamless Loop) -->
+          <!-- Item 1: Apollo -->
+          <div
+            class="h-24 px-8 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 min-w-[240px] justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div class="size-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 shrink-0">
+              <span class="material-symbols-outlined text-3xl">local_hospital</span>
+            </div>
+            <span class="text-xl font-bold text-slate-700 font-display">Apollo</span>
+          </div>
+
+          <!-- Item 2: Fortis -->
+          <div
+            class="h-24 px-8 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 min-w-[240px] justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div class="size-12 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 shrink-0">
+              <span class="material-symbols-outlined text-3xl">ecg_heart</span>
+            </div>
+            <span class="text-xl font-bold text-slate-700 font-display">Fortis</span>
+          </div>
+
+          <!-- Item 3: Manipal -->
+          <div
+            class="h-24 px-8 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 min-w-[240px] justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div class="size-12 rounded-full bg-indigo-50 flex items-center justify-center text-indigo-600 shrink-0">
+              <span class="material-symbols-outlined text-3xl">medical_services</span>
+            </div>
+            <span class="text-xl font-bold text-slate-700 font-display">Manipal</span>
+          </div>
+
+          <!-- Item 4: Narayana -->
+          <div
+            class="h-24 px-8 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 min-w-[240px] justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div class="size-12 rounded-full bg-rose-50 flex items-center justify-center text-rose-600 shrink-0">
+              <span class="material-symbols-outlined text-3xl">healing</span>
+            </div>
+            <span class="text-xl font-bold text-slate-700 font-display">Narayana</span>
+          </div>
+
+          <!-- Item 5: Max -->
+          <div
+            class="h-24 px-8 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 min-w-[240px] justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div class="size-12 rounded-full bg-amber-50 flex items-center justify-center text-amber-600 shrink-0">
+              <span class="material-symbols-outlined text-3xl">medication</span>
+            </div>
+            <span class="text-xl font-bold text-slate-700 font-display">Max</span>
+          </div>
+
+          <!-- Item 6: Aster -->
+          <div
+            class="h-24 px-8 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 min-w-[240px] justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div class="size-12 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 shrink-0">
+              <span class="material-symbols-outlined text-3xl">health_and_safety</span>
+            </div>
+            <span class="text-xl font-bold text-slate-700 font-display">Aster</span>
+          </div>
+
+          <!-- Item 7: Sakra -->
+          <div
+            class="h-24 px-8 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 min-w-[240px] justify-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">
+            <div class="size-12 rounded-full bg-cyan-50 flex items-center justify-center text-cyan-600 shrink-0">
+              <span class="material-symbols-outlined text-3xl">biotech</span>
+            </div>
+            <span class="text-xl font-bold text-slate-700 font-display">Sakra</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mb-24 mt-32">
+      <div class="flex items-center gap-4 mb-8">
+        <h3 class="text-4xl font-bold text-heading">Health Library</h3>
+        <div class="h-px flex-1 bg-slate-200"></div>
+        <a class="text-primary font-bold hover:underline" href="#">View All Videos</a>
+      </div>
+      <p class="text-slate-600 text-lg max-w-2xl mb-8">Hassle-free surgical experience with top-tier insurance support
+        and world-class medical care.</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="group cursor-pointer">
+          <div
+            class="aspect-video bg-slate-100 rounded-3xl overflow-hidden relative mb-4 border border-slate-100 shadow-md">
+            <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBvdCvm5baadWB6KbfNaYk-dsWizU3utNMQziLOrxvTa6CN4F5gpJ7XOSshqNBnoXuMgquyRddA2Ve0E3A7HiT6TsxFdCNVuhpfcw7pKZImA-0c-dOwqXpW6hESc-RpxhSmn7xJ8NffqXrIwP5t1oQlNjJqTSr9JMeJzF2hG_85onyg4zkkbsE1psHO0LM6D86Em5LnIhX66agi7vNMVWQuP3rLjJTHFJkxmfhPmOayRvITSrbHU_iAbzmK4Wce5wSdwpdX_NwgKPBB');">
+            </div>
+            <div class="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-all"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div
+                class="size-16 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all text-white">
+                <span class="material-symbols-outlined fill-1">play_arrow</span>
+              </div>
+            </div>
+            <div
+              class="absolute bottom-4 right-4 bg-slate-900/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-white">
+              12:45</div>
+          </div>
+          <h7 class="text-lg font-bold text-heading group-hover:text-primary transition-colors block mb-2">Understanding
+            Heart Health &amp; Longevity</h7>
+          <div class="flex items-center gap-3">
+            <img class="size-6 rounded-full"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoJBs4oR9jEa7uFwG_d3jECsLxwMyH30CHSJa5iTxuxIe2pNkp0q4fLDnhp53wv7eZFglZNwMYgHAbb-d4dTQMpUS3-Ivoehxu6Vp7tvjXFGTUZDiN5Cg5E7dzI2UkV3QnSHsyr4_5LW5wSkd2Pb65fS5PUarunIEzr_iY5NDYtfU5HJ3jwGRCvQ-ONMWfzW6yCmwjPnlJfgrXiXsVzQaVfxILtHLiDjTdKuQMuZF6oHtNRkMmeLVcB1y7QRJSY-MWXoImy6RK1KDy" />
+            <span class="text-xs text-slate-500">Dr. Sarah Johnson • 12K Views</span>
+          </div>
+        </div>
+        <div class="group cursor-pointer">
+          <div
+            class="aspect-video bg-slate-100 rounded-3xl overflow-hidden relative mb-4 border border-slate-100 shadow-md">
+            <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAU48fpJOE93jGlnaqg7ulY4dpAgAGTetJHrx0ONtYXkxPOj1VZjSQRIZyhurbyATOw13wH6vQ8h8mjohGkUJvcKSnc8Vn85RoMeo6AxNVanCIjZS3pkiZKqo5nY8Jy-NMLAihfxMAclfnXMp1SofvGYvSfKAPSTdpbFwdh8BtQr7dhQHiF68XRh73-ANNZwlbV9NxIEAtXh1EdyXfp_5LtdynIfZNInp_X1WO2YBNOLEO_UORb3aex1A0z5UpO8nPItSHjpo6O5qB3');">
+            </div>
+            <div class="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-all"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div
+                class="size-16 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all text-white">
+                <span class="material-symbols-outlined fill-1">play_arrow</span>
+              </div>
+            </div>
+            <div
+              class="absolute bottom-4 right-4 bg-slate-900/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-white">
+              08:20</div>
+          </div>
+          <h7 class="text-lg font-bold text-heading group-hover:text-primary transition-colors block mb-2">Nutrition
+            Tips for High Performance</h7>
+          <div class="flex items-center gap-3">
+            <img class="size-6 rounded-full"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuA91WBxXEisciYOfT0lTqUV6BbUBYiWudXP-iPzm1KKJ2Z_HPMfkqitYT4CqpvoNPTsJFkKwsCgrlJI0vM7yNRbA3EDX2wjdS1lQxP4EmqN_naPXNqDNTlljpxCk7mqJZM-KHsoZTj9M1TVnuU4GIEcaOY9l502joc1d1oyFLNF0R-1Or1rJ9xwrleREUKYntVzQpYHf2TqWvXkShEsQokbYDqg-IaNC95b7qyPPrYlohaGh4obsiLODGFH1SICWHUpQq9gO_38ACV4" />
+            <span class="text-xs text-slate-500">Dr. Michael Chen • 8.5K Views</span>
+          </div>
+        </div>
+        <div class="group cursor-pointer">
+          <div
+            class="aspect-video bg-slate-100 rounded-3xl overflow-hidden relative mb-4 border border-slate-100 shadow-md">
+            <div class="absolute inset-0 bg-center bg-cover transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCcy-R82pRNOo8pBmSnzdb2dF78mI4qOo9O2BDL-ir7_G33lbdSI0aes8v6xsA9wjoEUfV7fphtjKOyIneA_m4cIhG8DgsYS8lxO2rXAcJVrpfWgO7vd-Kx2q8O-ch5P8jNmXAzEHT0PbYpznARaWgsNTxvOLRoIY9KhGKQzjD0CXielXuxoryQMJQbSH7yEIHtc-cRKRDd7rRvF2hEbJcXgU0_zYe4MEFOWCtJjs1gI1cIGJ61sxCs9CDXV5dN9UhMoZ-y_LBoB6-t');">
+            </div>
+            <div class="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-all"></div>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div
+                class="size-16 rounded-full bg-white/30 backdrop-blur-md flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all text-white">
+                <span class="material-symbols-outlined fill-1">play_arrow</span>
+              </div>
+            </div>
+            <div
+              class="absolute bottom-4 right-4 bg-slate-900/70 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold text-white">
+              15:10</div>
+          </div>
+          <h7 class="text-lg font-bold text-heading group-hover:text-primary transition-colors block mb-2">Posture
+            Correction &amp; Back Pain Relief</h7>
+          <div class="flex items-center gap-3">
+            <img class="size-6 rounded-full"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC4BBq8KZq5k-_4NS6difeROd86Efjgggu_nyugyn8qcRz7b9cmeTWna72JHP9VWGBbLIJqUX86N1PdDnUmVg0uypEhAWqozm60zbfvW7ZRhcSjCCx3ZAvWnIj9iGYc34qHpIAJkVH2XKv2v4O1SWgsyAq9-GYKFsRB2x8twpDQMOsVRqo152p2NlarBIPT0s5bHCW2hiPvu2viWhOfOWVlvhafBvKfTCs495nNVMfScfaVF3ON_UxE0TNsk0R2s4tU8Ror1-jOx66" />
+            <span class="text-xs text-slate-500">Dr. Emily Watts • 22K Views</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Community Questions Section -->
+    <section class="py-24 border-t border-slate-100">
+      <div class="max-w-7xl mx-auto px-6">
+        <h3 class="text-3xl md:text-4xl font-bold text-slate-900 text-center mb-16">Community Questions</h3>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Card 1 -->
+          <div
+            class=" p-6 rounded-2xl border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="size-12 rounded-full overflow-hidden shrink-0 border border-slate-100">
+                <img
+                  src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                  alt="Dr. Bindu" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h4 class="font-bold text-red-600 text-base">Dr. Bindu Goyal Singla</h4>
+                <p class="text-xs text-slate-500 font-medium">Pulmonologist, Patiala</p>
+              </div>
+            </div>
+
+            <p class="text-slate-800 font-medium mb-3">is this 4 the 1st time u r having these symptoms???</p>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              it may be just GERD, take the precautions no heavy meals in night t... <button
+                class="text-slate-400 font-medium hover:text-primary transition-colors">Continue Reading</button>
+            </p>
+
+            <div class="flex items-center justify-between pt-4 border-t border-slate-50">
+              <span class="text-red-500 text-sm font-bold">1 more answer</span>
+              <button class="text-slate-400 hover:text-red-500 transition-colors">
+                <span class="material-symbols-outlined filled">favorite_border</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-white p-6 rounded-2xl border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300">
+            <div class="flex justify-between items-start mb-4">
+              <div class="flex items-center gap-4">
+                <div class="size-12 rounded-full overflow-hidden shrink-0 border border-slate-100">
+                  <img
+                    src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                    alt="Dr. Girish" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <h4 class="font-bold text-red-600 text-base">Dr. Girish Dani</h4>
+                  <p class="text-xs text-slate-500 font-medium">Gynaecologist, Mumbai</p>
+                </div>
+              </div>
+              <div class="w-12 h-12 rounded-lg overflow-hidden bg-slate-100 shrink-0">
+                <img
+                  src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                  alt="Patient" class="w-full h-full object-cover">
+              </div>
+            </div>
+
+            <p class="text-slate-800 font-medium mb-3">that I have..</p>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Yes you can. Depending on how many pus cells observed in urine routine further management... <button
+                class="text-slate-400 font-medium hover:text-primary transition-colors">Continue Reading</button>
+            </p>
+
+            <div class="flex items-center justify-between pt-4 border-t border-slate-50">
+              <span class="text-red-500 text-sm font-bold">1 more answer</span>
+              <button class="text-slate-400 hover:text-red-500 transition-colors">
+                <span class="material-symbols-outlined filled">favorite_border</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-white p-6 rounded-2xl border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300">
+            <div class="flex justify-between items-start mb-4 gap-4">
+              <div>
+                <h4 class="font-medium text-slate-800 text-lg mb-4 line-clamp-2">I am 19 years old female .as usual I
+                  took krimson ..</h4>
+                <div class="flex items-center gap-3">
+                  <div class="size-12 rounded-full overflow-hidden shrink-0 border border-slate-100">
+                    <img
+                      src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                      alt="Dr. Madhumita" class="w-full h-full object-cover">
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-red-600 text-sm">Dr. Madhumita Das</h4>
+                    <p class="text-[10px] text-slate-500 font-medium">Gynaecologist, Guwahati</p>
+                  </div>
+                </div>
+              </div>
+              <div class="w-16 h-16 rounded-xl overflow-hidden bg-slate-100 shrink-0 shadow-sm">
+                <img
+                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                  alt="Patient" class="w-full h-full object-cover">
+              </div>
+            </div>
+
+            <p class="text-slate-600 text-sm leading-relaxed mb-4 mt-3">
+              If you had sex on the 5th day of your periods, you cannot get pregnant. At this time, there are no mature
+              follicles in t... <button class="text-slate-400 font-medium hover:text-primary transition-colors">Continue
+                Reading</button>
+            </p>
+
+            <div class="flex items-center justify-between pt-4 border-t border-slate-50">
+              <span class="text-red-500 text-sm font-bold">1 more answer</span>
+              <button class="text-slate-400 hover:text-red-500 transition-colors">
+                <span class="material-symbols-outlined filled">favorite_border</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="bg-white p-6 rounded-2xl border border-slate-100 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300">
+            <div class="flex justify-between items-start mb-4 gap-4">
+              <div>
+                <h4 class="font-medium text-slate-800 text-lg mb-4 line-clamp-2">Hi doctor my misses suffering urine
+                  incontinence s..</h4>
+                <div class="flex items-center gap-3">
+                  <div class="size-12 rounded-full overflow-hidden shrink-0 border border-slate-100">
+                    <img
+                      src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                      alt="Dr. Bivek" class="w-full h-full object-cover">
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-red-600 text-sm">Dr. Bivek Kumar</h4>
+                    <p class="text-[10px] text-slate-500 font-medium">Urologist, Bangalore</p>
+                  </div>
+                </div>
+              </div>
+              <div class="w-16 h-16 rounded-xl overflow-hidden bg-slate-100 shrink-0 shadow-sm">
+                <img
+                  src="https://images.unsplash.com/photo-1510759395231-72b17d622279?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
+                  alt="Patient" class="w-full h-full object-cover">
+              </div>
+            </div>
+
+            <p class="text-slate-600 text-sm leading-relaxed mb-4 mt-3">
+              Hi, looks like she may have hyperactive bladder with a incompetent urethra. She needs a urologist opinion
+              with examinati... <button class="text-slate-400 font-medium hover:text-primary transition-colors">Continue
+                Reading</button>
+            </p>
+
+            <div class="flex items-center justify-between pt-4 border-t border-slate-50">
+              <span class="text-red-500 text-sm font-bold">1 more answer</span>
+              <button class="text-slate-400 hover:text-red-500 transition-colors">
+                <span class="material-symbols-outlined filled">favorite_border</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-7xl mx-auto px-4 mb-24">
+      <!-- Section Header -->
+      <div class="flex items-center justify-between mb-8">
+        <h3 class="text-2xl md:text-3xl font-bold text-heading">Latest Health Questions</h3>
+        <div class="flex gap-2">
+          <button onclick="scrollQuestions('left')"
+            class="size-10 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 hover:border-primary/50 hover:text-primary transition-all">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </button>
+          <button onclick="scrollQuestions('right')"
+            class="size-10 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50 hover:border-primary/50 hover:text-primary transition-all">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Categories (Scrollable) -->
+      <div class="flex flex-wrap gap-3 pb-6 mb-2" id="category-filters">
+        <button onclick="filterQuestions(this, 'all')"
+          class="category-btn active whitespace-nowrap px-5 py-2 rounded-full border border-blue-600 bg-blue-50 text-blue-700 font-semibold text-sm transition-all shadow-sm">All</button>
+        <button onclick="filterQuestions(this, 'cancer')"
+          class="category-btn whitespace-nowrap px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-medium text-sm hover:border-blue-200 hover:text-blue-600 hover:bg-slate-50 transition-all">Cancer</button>
+        <button onclick="filterQuestions(this, 'orthopaedics')"
+          class="category-btn whitespace-nowrap px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-medium text-sm hover:border-blue-200 hover:text-blue-600 hover:bg-slate-50 transition-all">Orthopaedics</button>
+        <button onclick="filterQuestions(this, 'cardiology')"
+          class="category-btn whitespace-nowrap px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-medium text-sm hover:border-blue-200 hover:text-blue-600 hover:bg-slate-50 transition-all">Cardiology
+          / Heart</button>
+        <button onclick="filterQuestions(this, 'plastic-surgery')"
+          class="category-btn whitespace-nowrap px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-medium text-sm hover:border-blue-200 hover:text-blue-600 hover:bg-slate-50 transition-all">Plastic
+          Surgery</button>
+        <button onclick="filterQuestions(this, 'sexual-wellness')"
+          class="category-btn whitespace-nowrap px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-medium text-sm hover:border-blue-200 hover:text-blue-600 hover:bg-slate-50 transition-all">Sexual
+          Wellness</button>
+        <button onclick="filterQuestions(this, 'health-fitness')"
+          class="category-btn whitespace-nowrap px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-medium text-sm hover:border-blue-200 hover:text-blue-600 hover:bg-slate-50 transition-all">Health
+          and Fitness</button>
+        <button onclick="filterQuestions(this, 'food-nutrition')"
+          class="category-btn whitespace-nowrap px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-medium text-sm hover:border-blue-200 hover:text-blue-600 hover:bg-slate-50 transition-all">Food
+          and Nutrition</button>
+        <button onclick="filterQuestions(this, 'general-surgery')"
+          class="category-btn whitespace-nowrap px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-medium text-sm hover:border-blue-200 hover:text-blue-600 hover:bg-slate-50 transition-all">General
+          Surgery</button>
+        <button onclick="filterQuestions(this, 'womens-health')"
+          class="category-btn whitespace-nowrap px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-medium text-sm hover:border-blue-200 hover:text-blue-600 hover:bg-slate-50 transition-all">Women's
+          Health</button>
+        <button onclick="filterQuestions(this, 'eye-health')"
+          class="category-btn whitespace-nowrap px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-medium text-sm hover:border-blue-200 hover:text-blue-600 hover:bg-slate-50 transition-all">Eye
+          Health</button>
+        <button onclick="filterQuestions(this, 'organ-transplant')"
+          class="category-btn whitespace-nowrap px-5 py-2 rounded-full border border-slate-200 text-slate-600 font-medium text-sm hover:border-blue-200 hover:text-blue-600 hover:bg-slate-50 transition-all">Organ
+          Transplant</button>
+      </div>
+
+      <!-- Question Cards (Horizontal Snap Scroll) -->
+      <div id="questions-container"
+        class="flex gap-6 overflow-x-auto pb-8 snap-x snap-mandatory no-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
+
+        <!-- Card 1 -->
+        <div data-category="cardiology"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">
+              Is open heart surgery possible via the Ayusman Bharat Yojana scheme?
+            </h5>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+              Yes – open heart surgery Ayushman Bharat Yojana (PM-JAY) ke under fully possible aur covered hai, provided
+              aapka naam beneficiary list mein ho. Is scheme ke tehat ₹5 lakh tak ka free ilaaj milta hai.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors">
+              <span class="material-symbols-outlined text-xl">favorite</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div data-category="cardiology"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">
+              Is Angioplasty Treatment Possible Through Ayushman Bharat Card?
+            </h5>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">
+                RD</div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">Dr. Rudrani Dhole</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+              Angioplasty Ayushman Card Par Kya-Kya Cover Hoti Hai? Ayushman Bharat insurance me angioplasty ka kharcha
+              sarkar uthati hai. Isme stent ki cost, hospital stay, medicines aur doctor ki fees shamil hoti hai.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors">
+              <span class="material-symbols-outlined text-xl">favorite</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div data-category="orthopaedics"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">
+              Where can I find the best heart clot treatment center in Bhopal?
+            </h5>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">
+                RD</div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">Dr. Rudrani Dhole </span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+              Heart clot (thrombosis) tab hota hai jab artery me blood clot ban kar dil tak blood flow rok deta hai. Ye
+              heart attack ka bada karan ban sakta hai. Agar aap Bhopal me rehte hain, HexaHealth network ke best
+              hospitals me heart clot treatment karwa sakte hain.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors">
+              <span class="material-symbols-outlined text-xl">favorite</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div data-category="general-surgery"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">
+              Heart test kya hota hai aur iske fayde kya hain?
+            </h5>
+
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">
+                RD</div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">Dr. Rudrani Dhole</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+              Hello, Haan, heart ke test dil ki health aur blood flow check karne ke liye kiye jaate hain. Common Heart
+              Tests: ECG (Electrocardiogram) – Dil ki electrical activity record karta hai. Echocardiogram – Ultrasound
+              se dil ki tasveer banata hai. Stress Test – Exercise ke dauran dil ka response check hota hai. Angiography
+              – Blockage dekhne ke liye kiya jata hai. In tests se heart attack, arrhythmia aur blockage ka pata lagaya
+              ja sakta hai.
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors">
+              <span class="material-symbols-outlined text-xl">favorite</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Additional Cardiology Cards -->
+        <div data-category="cardiology"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">What causes high
+              blood pressure?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">High BP can result from obesity, high salt intake,
+              stress, lack of exercise, genetics, or kidney disease. Regular monitoring and lifestyle changes are
+              essential.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+        <div data-category="cardiology"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">Can heart disease be
+              reversed?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Some heart conditions can improve with diet, exercise,
+              and medication. Early intervention is key to preventing further damage.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+        <div data-category="cardiology"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">What is the
+              difference between heart attack and cardiac arrest?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Heart attack is a blockage issue; cardiac arrest is an
+              electrical problem causing the heart to stop. Both require immediate medical attention.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+
+        <!-- Additional Orthopaedics Cards -->
+        <div data-category="orthopaedics"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">How long does knee
+              replacement recovery take?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Most patients resume normal activities within 3-6 weeks.
+              Full recovery can take 6 months to a year with proper physiotherapy.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+        <div data-category="orthopaedics"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">Is spine surgery
+              risky?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Modern minimally invasive techniques have reduced risks
+              significantly. Success depends on the condition and surgeon expertise.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+        <div data-category="orthopaedics"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">Can arthritis be
+              cured?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">There's no cure, but symptoms can be managed with
+              medication, physical therapy, weight management, and in severe cases, surgery.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+        <div data-category="orthopaedics"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">What causes frozen
+              shoulder?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Frozen shoulder occurs when the shoulder capsule
+              thickens and tightens. It's common after injury or prolonged immobility. Physical therapy helps.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+
+        <!-- Additional General Surgery Cards -->
+        <div data-category="general-surgery"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">How do I know if I
+              have a hernia?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">A visible bulge in the abdomen or groin that becomes
+              more prominent when standing or coughing is a common sign. Pain or discomfort may also occur.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+        <div data-category="general-surgery"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">Is gallbladder
+              removal safe?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Laparoscopic cholecystectomy is very safe and common.
+              Complications are rare, and most patients return home the same or next day.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+        <div data-category="general-surgery"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">What are appendicitis
+              symptoms?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Sudden pain on the right side of lower abdomen, nausea,
+              vomiting, and loss of appetite. Immediate medical attention is required.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+        <div data-category="general-surgery"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">Can piles be treated
+              without surgery?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Early-stage piles can be managed with dietary changes
+              (high fiber), medications, and lifestyle modifications. Laser treatment is also an option.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+
+        <!-- Cancer Cards -->
+        <div data-category="cancer"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">
+              What are the early signs of cancer?
+            </h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+              Early signs include unexplained weight loss, persistent fatigue, unusual lumps, changes in bowel or
+              bladder habits, and persistent cough. Early detection greatly improves treatment outcomes.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors">
+              <span class="material-symbols-outlined text-xl">favorite</span>
+            </button>
+          </div>
+        </div>
+        <div data-category="cancer"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">Is chemotherapy
+              always necessary?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">No, it depends on cancer type and stage. Surgery,
+              radiation, immunotherapy, and targeted therapy are other effective treatments.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+        <div data-category="cancer"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">Can cancer be
+              genetic?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Only 5-10% of cancers are hereditary. Most are caused by
+              gene mutations during a person's lifetime due to environmental or lifestyle factors.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+        <div data-category="cancer"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">Does sugar feed
+              cancer?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">Sugar doesn't directly feed cancer more than normal
+              cells. However, high sugar intake can lead to obesity, a risk factor for several cancers.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+        <div data-category="cancer"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">What is
+              immunotherapy?</h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">It's a treatment that helps your immune system fight
+              cancer. It's showing promising results for many cancer types with fewer side effects than chemo.</p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors"><span
+                class="material-symbols-outlined text-xl">favorite</span></button>
+          </div>
+        </div>
+
+        <!-- Plastic Surgery Cards -->
+        <div data-category="plastic-surgery"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">
+              Is rhinoplasty painful?
+            </h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+              Most patients report discomfort rather than severe pain, which is manageable with medication. Swelling and
+              bruising are common but subside within a few weeks.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors">
+              <span class="material-symbols-outlined text-xl">favorite</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sexual Wellness Cards -->
+        <div data-category="sexual-wellness"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">
+              Is ED curable?
+            </h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+              Yes, most cases are treatable with lifestyle changes, medication, or therapy. Identifying the underlying
+              cause (psychological or physical) is the first step.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors">
+              <span class="material-symbols-outlined text-xl">favorite</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Health and Fitness Cards -->
+        <div data-category="health-fitness"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">
+              Is walking enough exercise?
+            </h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+              Brisk walking is excellent cardio. However, combining it with strength training and flexibility exercises
+              provides a more balanced fitness routine for overall health.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors">
+              <span class="material-symbols-outlined text-xl">favorite</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Food and Nutrition Cards -->
+        <div data-category="food-nutrition"
+          class="question-card snap-start min-w-[300px] w-[340px] md:w-[380px] bg-white border border-slate-100 rounded-2xl p-6 hover:shadow-lg transition-shadow duration-300 flex flex-col justify-between h-full">
+          <div>
+            <h5 class="text-base md:text-lg font-bold text-heading mb-4 leading-snug line-clamp-3">
+              Is intermittent fasting healthy?
+            </h5>
+            <div class="flex items-center gap-3 mb-4">
+              <div
+                class="size-8 rounded-full bg-[#118dce] flex items-center justify-center text-white text-xs font-bold">H
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-slate-700">HexaHealth Team</span>
+                <span
+                  class="bg-green-100 text-green-700 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase">Expert</span>
+              </div>
+            </div>
+            <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+              It can be effective for weight loss and metabolic health for many people. However, it's not suitable for
+              everyone, such as those with diabetes or a history of eating disorders.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-50 flex items-center justify-between mt-auto">
+            <a href="#" class="text-xs font-bold text-heading hover:text-primary transition-colors">View All Answers</a>
+            <button class="text-slate-400 hover:text-red-500 transition-colors">
+              <span class="material-symbols-outlined text-xl">favorite</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Book Appointment CTA -->
+    <section id="appointment" class="relative w-screen ml-[calc(50%-50vw)] py-24 bg-slate-900 overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+          alt="Healthcare background" class="w-full h-full object-cover opacity-60">
+        <div class="absolute inset-0 bg-slate-900/90 mix-blend-hard-light"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900 opacity-90"></div>
+      </div>
+
+      <!-- Blobs -->
+      <div
+        class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] mix-blend-screen -translate-y-1/2 translate-x-1/2 pointer-events-none">
+      </div>
+      <div
+        class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[100px] mix-blend-screen translate-y-1/2 -translate-x-1/2 pointer-events-none">
+      </div>
+
+      <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8">
+          <span class="relative flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+          </span>
+          <span class="text-sm font-medium text-emerald-300 tracking-wide uppercase">Priority Appointments
+            Available</span>
+        </div>
+
+        <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6 leading-tight">
+          Book an Appointment with the<br class="hidden md:block" />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Best Doctors in
+            Bangalore</span>
+        </h2>
+
+        <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+          Whether you need a consultation, surgical evaluation, or trusted second opinion, IQH helps you connect with
+          the right specialist quickly and reliably.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <button
+            class="w-full sm:w-auto px-8 py-4 bg-primary hover:bg-primary/90 text-white rounded-xl font-bold shadow-lg shadow-primary/25 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 group">
+            <span class="material-symbols-outlined group-hover:animate-pulse">calendar_month</span>
+            Book Your Appointment Now
+          </button>
+
+          <button
+            class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/10 rounded-xl font-bold backdrop-blur-md hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2">
+            <span class="material-symbols-outlined">support_agent</span>
+            Speak to Our Care Team
+          </button>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 pt-8 border-t border-white/10">
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="material-symbols-outlined text-emerald-400">check_circle</span>
+            <span class="font-medium">Clear guidance</span>
+          </div>
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="material-symbols-outlined text-emerald-400">check_circle</span>
+            <span class="font-medium">Experienced doctors</span>
+          </div>
+          <div class="flex items-center gap-2 text-slate-300">
+            <span class="material-symbols-outlined text-emerald-400">check_circle</span>
+            <span class="font-medium">Complete healthcare support</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+  </main>
+  <footer class="bg-white py-20 px-6 lg:px-20 border-t border-slate-100">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+      <div class="col-span-2">
+        <div class="flex items-center gap-3 mb-8">
+          <div class="size-10 bg-primary rounded-xl flex items-center justify-center text-white">
+            <span class="material-symbols-outlined font-bold">clinical_notes</span>
+          </div>
+          <h1 class="text-xl font-extrabold tracking-tight text-heading">HEAL<span class="text-primary">CORE</span></h1>
+        </div>
+        <p class="text-slate-500 max-w-sm mb-8 leading-relaxed">
+          Premium healthcare ecosystem providing unified access to the world's best doctors, clinics, and health
+          resources.
+        </p>
+        <div class="flex gap-4">
+          <button
+            class="size-10 rounded-full bg-slate-50 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-slate-600">
+            <span class="material-symbols-outlined">public</span>
+          </button>
+          <button
+            class="size-10 rounded-full bg-slate-50 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-slate-600">
+            <span class="material-symbols-outlined">share</span>
+          </button>
+          <button
+            class="size-10 rounded-full bg-slate-50 flex items-center justify-center hover:bg-primary hover:text-white transition-all text-slate-600">
+            <span class="material-symbols-outlined">mail</span>
+          </button>
+        </div>
+      </div>
+      <div>
+        <h8 class="text-heading font-bold mb-6 block">Company</h8>
+        <ul class="space-y-4 text-slate-500 text-sm font-medium">
+          <li><a class="hover:text-primary transition-colors" href="#">About Us</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">Contact</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h8 class="text-heading font-bold mb-6 block">Support</h8>
+        <ul class="space-y-4 text-slate-500 text-sm font-medium">
+          <li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">Terms of Use</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">Help Center</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#">Security</a></li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="max-w-7xl mx-auto mt-20 pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-slate-400 text-xs">© 2024 HealCore Healthcare Ecosystem. All rights reserved.</p>
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-2">
+          <span class="size-2 rounded-full bg-green-500"></span>
+          <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Systems Online</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Toggle main dropdown
+    function toggleDropdown(dropdownId, event) {
+      const dropdown = document.getElementById(`dropdown-${dropdownId}`);
+      const button = event ? event.currentTarget : null;
+
+      // Toggle visibility
+      dropdown.classList.toggle('hidden');
+
+      // Position dropdown below the button
+      if (button && !dropdown.classList.contains('hidden')) {
+        const buttonRect = button.getBoundingClientRect();
+        const headerHeight = buttonRect.bottom;
+
+        dropdown.style.top = `${headerHeight + 10}px`; // 10px gap below button
+        dropdown.style.left = `${buttonRect.left}px`;
+      }
+    }
+
+    // Show department submenu on hover (right side)
+    function showDepartmentSubmenu(deptId, event) {
+      // Hide all other department submenus first
+      document.querySelectorAll('[id^="submenu-"]').forEach(menu => {
+        if (menu.id !== `submenu-${deptId}`) {
+          menu.classList.add('hidden');
+        }
+      });
+
+      const submenu = document.getElementById(`submenu-${deptId}`);
+      const button = event.currentTarget;
+
+      submenu.classList.remove('hidden');
+
+      // Position submenu to the right of the department button
+      const buttonRect = button.getBoundingClientRect();
+      const dropdownRect = button.closest('#dropdown-departments').getBoundingClientRect();
+
+      submenu.style.top = `${buttonRect.top}px`;
+      submenu.style.left = `${dropdownRect.right + 5}px`; // 5px gap to the right
+    }
+
+    // Hide department submenu
+    function hideDepartmentSubmenu(deptId) {
+      setTimeout(() => {
+        const submenu = document.getElementById(`submenu-${deptId}`);
+        const isHovered = submenu.matches(':hover');
+
+        if (!isHovered) {
+          submenu.classList.add('hidden');
+          // Also hide any open flyouts
+          document.querySelectorAll('[id^="flyout-"]').forEach(flyout => {
+            flyout.classList.add('hidden');
+          });
+        }
+      }, 100);
+    }
+
+    // Show submenu flyout (Conditions/Procedures) on hover
+    function showSubmenuFlyout(flyoutId, event) {
+      // Hide all other flyouts first
+      document.querySelectorAll('[id^="flyout-"]').forEach(flyout => {
+        if (flyout.id !== `flyout-${flyoutId}`) {
+          flyout.classList.add('hidden');
+        }
+      });
+
+      const flyout = document.getElementById(`flyout-${flyoutId}`);
+      const button = event.currentTarget;
+
+      flyout.classList.remove('hidden');
+
+      // Position flyout to the right of the submenu button
+      const buttonRect = button.getBoundingClientRect();
+      const submenuRect = button.closest('[id^="submenu-"]').getBoundingClientRect();
+
+      flyout.style.top = `${buttonRect.top}px`;
+      flyout.style.left = `${submenuRect.right + 5}px`; // 5px gap to the right
+    }
+
+    // Hide submenu flyout
+    function hideSubmenuFlyout(flyoutId) {
+      setTimeout(() => {
+        const flyout = document.getElementById(`flyout-${flyoutId}`);
+        const isHovered = flyout.matches(':hover');
+
+        if (!isHovered) {
+          flyout.classList.add('hidden');
+        }
+      }, 100);
+    }
+
+    // Toggle department (for click)
+    function toggleDepartment(deptId) {
+      const submenu = document.getElementById(`submenu-${deptId}`);
+      submenu.classList.toggle('hidden');
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function (event) {
+      const dropdownContainer = document.querySelector('.dropdown-container');
+      const dropdown = document.getElementById('dropdown-departments');
+
+      if (dropdownContainer && !dropdownContainer.contains(event.target) &&
+        dropdown && !dropdown.contains(event.target)) {
+        dropdown.classList.add('hidden');
+
+        // Hide all submenus and flyouts
+        document.querySelectorAll('[id^="submenu-"]').forEach(menu => {
+          menu.classList.add('hidden');
+        });
+        document.querySelectorAll('[id^="flyout-"]').forEach(flyout => {
+          flyout.classList.add('hidden');
+        });
+      }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        document.getElementById('dropdown-departments').classList.add('hidden');
+
+        // Hide all submenus and flyouts
+        document.querySelectorAll('[id^="submenu-"]').forEach(menu => {
+          menu.classList.add('hidden');
+        });
+        document.querySelectorAll('[id^="flyout-"]').forEach(flyout => {
+          flyout.classList.add('hidden');
+        });
+      }
+    });
+
+    // Mobile menu toggle
+    function toggleMobileMenu() {
+      const overlay = document.getElementById('mobile-menu');
+      const sidebar = document.getElementById('mobile-menu-sidebar');
+
+      overlay.classList.toggle('hidden');
+
+      if (overlay.classList.contains('hidden')) {
+        // Closing menu
+        sidebar.style.transform = 'translateX(100%)';
+      } else {
+        // Opening menu
+        sidebar.style.transform = 'translateX(0)';
+      }
+    }
+
+    // Toggle mobile departments accordion
+    function toggleMobileDepartments() {
+      const list = document.getElementById('mobile-departments-list');
+      const arrow = document.getElementById('mobile-dept-arrow');
+
+      list.classList.toggle('hidden');
+      arrow.classList.toggle('rotate-180');
+    }
+
+    // Scroll questions container
+    function scrollQuestions(direction) {
+      const container = document.getElementById('questions-container');
+      const scrollAmount = 400; // Approximate card width + gap
+
+      if (direction === 'left') {
+        container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      } else {
+        container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      }
+    }
+
+    // Filter questions by category
+    function filterQuestions(btn, category) {
+      // Update active button state
+      const buttons = document.querySelectorAll('.category-btn');
+      buttons.forEach(b => {
+        b.classList.remove('active', 'bg-blue-50', 'text-blue-700', 'border-blue-600');
+        b.classList.add('text-slate-600', 'border-slate-200', 'hover:border-blue-200', 'hover:text-blue-600', 'hover:bg-slate-50');
+      });
+
+      btn.classList.remove('text-slate-600', 'border-slate-200', 'hover:border-blue-200', 'hover:text-blue-600', 'hover:bg-slate-50');
+      btn.classList.add('active', 'bg-blue-50', 'text-blue-700', 'border-blue-600');
+
+      // Filter cards
+      const cards = document.querySelectorAll('.question-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Scroll-triggered reveal for 2nd fold (staggered)
+    const portalObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 200);
+          portalObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.portal-animate').forEach(el => portalObserver.observe(el));
+
+    // Animated stat counters
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const duration = 2000;
+      const startTime = performance.now();
+
+      function easeOutExpo(t) {
+        return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+      }
+
+      function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutExpo(progress);
+        const current = Math.floor(easedProgress * target);
+
+        el.textContent = current.toLocaleString() + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(update);
+        } else {
+          el.textContent = target.toLocaleString() + suffix;
+        }
+      }
+      requestAnimationFrame(update);
+    }
+
+    const statObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('.stat-counter');
+          counters.forEach((counter, i) => {
+            setTimeout(() => animateCounter(counter), i * 200);
+          });
+          statObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const statsBar = document.querySelector('.glass-card');
+    if (statsBar) statObserver.observe(statsBar.closest('.portal-animate') || statsBar);
+  </script>
+</body>
+
+</html>
