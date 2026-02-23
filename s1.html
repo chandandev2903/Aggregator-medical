@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pediatric Ophthalmology in Bangalore | Shraddha Eye Care Trust</title>
+    <meta name="description"
+        content="Expert pediatric eye care for children in Bangalore at Shraddha Eye Care Trust. Early detection & compassionate treatment of amblyopia, strabismus, refractive errors & more.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --pink: #e91e8c;
+            --blue: #2979ff;
+            --purple: #5c2d8e;
+            --dark: #0d0d1a;
+            --light: #f7f5ff;
+            --white: #fff;
+            --gray: #6b7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--white);
+            color: #111827;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── SHARED ── */
+        .tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--pink);
+            padding: 6px 14px;
+            background: rgba(233, 30, 140, 0.08);
+            border-radius: 50px;
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(28px, 3.5vw, 48px);
+            font-weight: 900;
+            line-height: 1.15;
+            color: #0d0d1a;
+            letter-spacing: -0.5px;
+            margin-bottom: 18px;
+        }
+
+        .brand-pink {
+            color: #e91e8c;
+        }
+
+        .brand-purple {
+            color: #5c2d8e;
+        }
+
+        .desc {
+            font-size: 16px;
+            line-height: 1.85;
+            color: #4b5563;
+        }
+
+        /* ══ HERO — full-width mesh gradient ══ */
+        .hero {
+            background:
+                linear-gradient(to right, rgba(13, 13, 26, 0.95) 0%, rgba(13, 13, 26, 0.80) 40%, rgba(13, 13, 26, 0.35) 65%, rgba(13, 13, 26, 0.15) 100%),
+                linear-gradient(to bottom, rgba(13, 13, 26, 0.2) 0%, rgba(13, 13, 26, 0.0) 40%, rgba(13, 13, 26, 0.6) 100%),
+                url('assets/img/img.jpg') center center / cover no-repeat;
+            padding: 100px 100px 0;
+            position: relative;
+            overflow: hidden;
+            min-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .hero-glow-1 {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(233, 30, 140, 0.18) 0%, transparent 65%);
+            top: -200px;
+            right: -100px;
+            pointer-events: none;
+        }
+
+        .hero-glow-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(41, 121, 255, 0.15) 0%, transparent 65%);
+            bottom: 100px;
+            left: -100px;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 760px;
+            padding-bottom: 70px;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 50px;
+            padding: 8px 18px;
+            margin-bottom: 28px;
+        }
+
+        .hero-eyebrow span {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .hero-eyebrow-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--pink);
+            flex-shrink: 0;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5.5vw, 72px);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -1.5px;
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: #e91e8c;
+        }
+
+        .hero h1 .purple-text {
+            color: #c084fc;
+        }
+
+        .hero-sub {
+            font-size: 17px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.55);
+            max-width: 560px;
+            margin-bottom: 44px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 70px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--pink), #7b2ff7);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 28px rgba(233, 30, 140, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 36px rgba(233, 30, 140, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 15px 36px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .hero-stat-bar {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-stat {
+            padding: 28px 24px;
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .hero-stat:last-child {
+            border-right: none;
+        }
+
+        .hero-stat-num {
+            font-size: 36px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #e91e8c, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .hero-stat-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* ══ ABOUT ══ */
+        .about-strip {
+            background: #f5f3fc;
+            padding: 100px 100px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* Left column */
+        .about-left .tag {
+            background: rgba(92, 45, 142, 0.1);
+            color: #5c2d8e;
+        }
+
+        .about-left .section-title {
+            margin-top: 14px;
+            margin-bottom: 0;
+        }
+
+        .about-left p {
+            font-size: 15.5px;
+            line-height: 1.9;
+            color: #4b5563;
+            margin-top: 18px;
+        }
+
+        .about-divider {
+            width: 56px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pink), var(--purple));
+            border-radius: 3px;
+            margin: 28px 0;
+        }
+
+        /* Stats row */
+        .about-stats-row {
+            display: flex;
+            gap: 0;
+            margin-top: 32px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(92, 45, 142, 0.08);
+            overflow: hidden;
+        }
+
+        .asr-item {
+            flex: 1;
+            padding: 22px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .asr-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 20%;
+            bottom: 20%;
+            width: 1px;
+            background: #ede8f8;
+        }
+
+        .asr-num {
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            display: block;
+        }
+
+        .asr-label {
+            font-size: 11px;
+            color: #9ca3af;
+            margin-top: 5px;
+            font-weight: 500;
+            display: block;
+            line-height: 1.4;
+        }
+
+        /* About CTA */
+        .about-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 30px;
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 13px 28px;
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.25s, box-shadow 0.25s;
+            box-shadow: 0 6px 20px rgba(233, 30, 140, 0.25);
+        }
+
+        .about-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(233, 30, 140, 0.35);
+            color: white;
+        }
+
+        /* Service cards grid */
+        .about-services {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .asv-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px 26px;
+            border: 1.5px solid #ede8f8;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.28s cubic-bezier(.34, 1.56, .64, 1), box-shadow 0.28s;
+            box-shadow: 0 2px 12px rgba(92, 45, 142, 0.05);
+        }
+
+        .asv-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 24px 48px rgba(92, 45, 142, 0.14);
+            border-color: transparent;
+        }
+
+        .asv-icon-wrap {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+
+        .asv-card:nth-child(1) .asv-icon-wrap {
+            background: linear-gradient(135deg, #fde8f3, #f3e5ff);
+        }
+
+        .asv-card:nth-child(2) .asv-icon-wrap {
+            background: linear-gradient(135deg, #e3f0ff, #d8f5ff);
+        }
+
+        .asv-card:nth-child(3) .asv-icon-wrap {
+            background: linear-gradient(135deg, #fff0e6, #ffebf5);
+        }
+
+        .asv-card:nth-child(4) .asv-icon-wrap {
+            background: linear-gradient(135deg, #e6fff9, #e3f0ff);
+        }
+
+        .asv-card h4 {
+            font-size: 15px;
+            font-weight: 800;
+            color: #0d0d1a;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .asv-card p {
+            font-size: 13px;
+            color: #6b7280;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .asv-card-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 16px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #7b2ff7;
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: opacity 0.25s, transform 0.25s;
+        }
+
+        .asv-card:hover .asv-card-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Right column — quote panel */
+        .about-quote-panel {
+            background: linear-gradient(160deg, #0d0d1a 0%, #1a0a2e 60%, #0a1240 100%);
+            border-radius: 28px;
+            padding: 44px 36px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .about-quote-panel::before {
+            content: '“';
+            font-family: 'Playfair Display', serif;
+            font-size: 160px;
+            color: rgba(233, 30, 140, 0.1);
+            position: absolute;
+            top: -16px;
+            left: 16px;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .aqp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(233, 30, 140, 0.15);
+            border: 1px solid rgba(233, 30, 140, 0.3);
+            border-radius: 50px;
+            padding: 5px 14px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ff6eb5;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .aqp-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 19px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.75;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .aqp-cite {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.35);
+            display: block;
+            margin-bottom: 28px;
+        }
+
+        .aqp-sep {
+            width: 100%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.08);
+            margin-bottom: 24px;
+        }
+
+        .aqp-checks {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .aqp-check {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.65);
+            line-height: 1.5;
+        }
+
+        .aqp-check-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: white;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1024px) {
+            .about-strip {
+                padding: 70px 48px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-quote-panel {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        /* ══ CONDITIONS ══ */
+        .conditions {
+            background: white;
+            padding: 100px 100px;
+        }
+
+        .conditions-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .conditions-header .desc {
+            max-width: 720px;
+            margin: 16px auto 0;
+            font-size: 16px;
+            line-height: 1.85;
+            color: #6b7280;
+        }
+
+        /* card grid */
+        .cond-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .cond-card {
+            background: #fafafa;
+            border: 1.5px solid #f0eaf8;
+            border-radius: 24px;
+            padding: 36px 30px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(.34, 1.56, .64, 1), box-shadow 0.3s, border-color 0.3s;
+        }
+
+        /* Wide card spans 2 cols for condition 1 */
+        .cond-card.wide {
+            grid-column: span 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .cond-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(92, 45, 142, 0.11);
+            border-color: rgba(233, 30, 140, 0.2);
+        }
+
+        /* number badge */
+        .cond-num {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #e91e8c;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cond-num::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 2px;
+            background: linear-gradient(90deg, #e91e8c, #7b2ff7);
+            border-radius: 2px;
+        }
+
+        /* icon circle */
+        .cond-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+
+        .cond-card:nth-child(1) .cond-icon {
+            background: linear-gradient(135deg, #fde8f3, #f3e5ff);
+        }
+
+        .cond-card:nth-child(2) .cond-icon {
+            background: linear-gradient(135deg, #e3f0ff, #d8f5ff);
+        }
+
+        .cond-card:nth-child(3) .cond-icon {
+            background: linear-gradient(135deg, #ecfdf5, #e0fff5);
+        }
+
+        .cond-card:nth-child(4) .cond-icon {
+            background: linear-gradient(135deg, #fffbeb, #fff3d0);
+        }
+
+        .cond-card:nth-child(5) .cond-icon {
+            background: linear-gradient(135deg, #f0e8ff, #e8f0ff);
+        }
+
+        .cond-card h3 {
+            font-size: 19px;
+            font-weight: 800;
+            color: #0d0d1a;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .cond-card p {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        .cond-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .cond-list li {
+            font-size: 14px;
+            color: #4b5563;
+            padding-left: 22px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .cond-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e91e8c, #7b2ff7);
+        }
+
+        /* accent glow in top-right of card */
+        .cond-card::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(233, 30, 140, 0.06) 0%, transparent 70%);
+            top: -30px;
+            right: -30px;
+            pointer-events: none;
+        }
+
+
+        /* ══ WARNING SIGNS — icon grid ══ */
+        .signs {
+            background: linear-gradient(135deg, #0d0d1a, #1a0a2e);
+            padding: 100px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .signs::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Ccircle cx='40' cy='40' r='1' fill='%23ffffff' fill-opacity='0.03'/%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .signs-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 60px;
+            align-items: end;
+        }
+
+        .signs .section-title {
+            color: white;
+        }
+
+        .signs .brand-purple {
+            color: #c084fc;
+            -webkit-text-fill-color: #c084fc;
+        }
+
+        .signs-right-desc {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.8;
+            align-self: flex-end;
+        }
+
+        .signs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .sign-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 28px 24px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .sign-card:hover {
+            background: rgba(233, 30, 140, 0.1);
+            border-color: rgba(233, 30, 140, 0.25);
+            transform: translateY(-4px);
+        }
+
+        .sign-card-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .sign-card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 8px;
+        }
+
+        .sign-card p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.42);
+            line-height: 1.6;
+        }
+
+        .signs-cta-note {
+            margin-top: 48px;
+            padding: 24px 32px;
+            background: rgba(233, 30, 140, 0.08);
+            border: 1px solid rgba(233, 30, 140, 0.2);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .signs-cta-note span {
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .signs-cta-note p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+        }
+
+        .signs-cta-note strong {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ══ TREATMENT TIMELINE ══ */
+        .treatment {
+            background: var(--light);
+            padding: 100px 100px;
+        }
+
+        .treatment-split {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            margin-top: 8px;
+        }
+
+        .tl-item {
+            display: flex;
+            gap: 0;
+            position: relative;
+        }
+
+        .tl-item:last-child .tl-line {
+            display: none;
+        }
+
+        .tl-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+            width: 48px;
+        }
+
+        .tl-dot {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pink), #7b2ff7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 14px rgba(233, 30, 140, 0.3);
+        }
+
+        .tl-line {
+            width: 2px;
+            flex: 1;
+            background: linear-gradient(to bottom, rgba(233, 30, 140, 0.3), rgba(41, 121, 255, 0.1));
+            min-height: 40px;
+        }
+
+        .tl-content {
+            padding: 0 0 36px 24px;
+        }
+
+        .tl-content h4 {
+            font-size: 16px;
+            font-weight: 800;
+            color: #0d0d1a;
+            margin-bottom: 6px;
+            margin-top: 10px;
+        }
+
+        .tl-content p {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.75;
+        }
+
+        .nethradhama-card {
+            background: linear-gradient(135deg, #0d0d1a, #1a0a2e);
+            border-radius: 28px;
+            padding: 48px 44px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nethradhama-card::before {
+            content: '';
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(233, 30, 140, 0.25) 0%, transparent 70%);
+            top: -80px;
+            right: -60px;
+        }
+
+        .nethradhama-card::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(41, 121, 255, 0.2) 0%, transparent 70%);
+            bottom: -60px;
+            left: -40px;
+        }
+
+        .nth-badge {
+            display: inline-block;
+            background: rgba(233, 30, 140, 0.2);
+            border: 1px solid rgba(233, 30, 140, 0.4);
+            color: #ff6eb5;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nethradhama-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: white;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nethradhama-card p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.85;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nth-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            position: relative;
+            z-index: 1;
+            margin-top: 8px;
+        }
+
+        .nth-tag {
+            background: rgba(41, 121, 255, 0.12);
+            border: 1px solid rgba(41, 121, 255, 0.25);
+            color: #7eb3ff;
+            padding: 7px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* ══ WHY CHOOSE — large typography ══ */
+        .why {
+            background: white;
+            padding: 100px 100px;
+        }
+
+        .why-top {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .why-top .section-title {
+            max-width: 520px;
+            margin-bottom: 0;
+        }
+
+        .why-top-desc {
+            font-size: 15px;
+            color: #6b7280;
+            line-height: 1.8;
+            max-width: 360px;
+            padding-bottom: 4px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .why-card {
+            border-radius: 22px;
+            padding: 36px 30px;
+            border: 1px solid #f0eaf8;
+            transition: transform 0.3s, box-shadow 0.3s;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .why-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--pink), var(--purple));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .why-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .why-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 48px rgba(92, 45, 142, 0.1);
+        }
+
+        .why-num {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1;
+            background: linear-gradient(135deg, rgba(233, 30, 140, 0.12), rgba(92, 45, 142, 0.12));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .why-card h3 {
+            font-size: 17px;
+            font-weight: 800;
+            color: #0d0d1a;
+            margin-bottom: 10px;
+        }
+
+        .why-card p {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.75;
+        }
+
+        .why-stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-top: 48px;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid #f0eaf8;
+        }
+
+        .ws-item {
+            padding: 36px 28px;
+            text-align: center;
+            border-right: 1px solid #f0eaf8;
+            background: var(--light);
+        }
+
+        .ws-item:last-child {
+            border-right: none;
+        }
+
+        .ws-num {
+            font-size: 42px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--pink), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .ws-label {
+            font-size: 13px;
+            color: #9ca3af;
+            font-weight: 500;
+        }
+
+        /* ══ FAQ ══ */
+        .faq {
+            background: var(--light);
+            padding: 100px 100px;
+        }
+
+        .faq-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 72px;
+            align-items: start;
+        }
+
+        /* Left decorative panel */
+        .faq-left {
+            position: sticky;
+            top: 100px;
+        }
+
+        .faq-left .tag {
+            background: rgba(233, 30, 140, 0.1);
+            color: #e91e8c;
+        }
+
+        .faq-left h2 {
+            margin-top: 16px;
+            margin-bottom: 20px;
+        }
+
+        .faq-left .desc {
+            font-size: 15px;
+            color: #6b7280;
+            line-height: 1.85;
+            margin-bottom: 36px;
+        }
+
+        .faq-visual-card {
+            background: linear-gradient(135deg, #0d0d1a, #1e0a3c);
+            border-radius: 24px;
+            padding: 36px 32px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .faq-visual-card::before {
+            content: '?';
+            font-size: 180px;
+            font-weight: 900;
+            color: rgba(233, 30, 140, 0.06);
+            position: absolute;
+            right: -20px;
+            top: -30px;
+            line-height: 1;
+            font-family: 'Playfair Display', serif;
+            pointer-events: none;
+        }
+
+        .faq-vc-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .faq-vc-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .faq-vc-dot {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: rgba(233, 30, 140, 0.15);
+            border: 1px solid rgba(233, 30, 140, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .faq-vc-text strong {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3px;
+        }
+
+        .faq-vc-text span {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            line-height: 1.5;
+        }
+
+        /* Right: accordion */
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 20px;
+            border: 1.5px solid #ede8f8;
+            overflow: hidden;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .faq-item.open {
+            border-color: rgba(233, 30, 140, 0.25);
+            box-shadow: 0 8px 32px rgba(92, 45, 142, 0.08);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 24px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            text-align: left;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: rgba(233, 30, 140, 0.02);
+        }
+
+        .faq-q-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .faq-q-badge {
+            background: linear-gradient(135deg, rgba(233, 30, 140, 0.1), rgba(123, 47, 247, 0.1));
+            border-radius: 8px;
+            padding: 4px 10px;
+            font-size: 10px;
+            font-weight: 800;
+            color: #e91e8c;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .faq-question span {
+            font-size: 15.5px;
+            font-weight: 700;
+            color: #0d0d1a;
+            line-height: 1.5;
+        }
+
+        .faq-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, rgba(233, 30, 140, 0.1), rgba(92, 45, 142, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e91e8c;
+            font-size: 18px;
+            font-weight: 300;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+            background: linear-gradient(135deg, var(--pink), #7b2ff7);
+            color: white;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 220px;
+        }
+
+        .faq-answer-inner {
+            padding: 0 28px 24px 52px;
+            border-top: 1px solid #f5f0ff;
+        }
+
+        .faq-answer-inner p {
+            font-size: 14.5px;
+            color: #6b7280;
+            line-height: 1.85;
+            padding-top: 18px;
+        }
+
+        @media (max-width: 900px) {
+            .faq-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .faq-left {
+                position: static;
+            }
+        }
+
+
+
+        /* ══ CTA ══ */
+        .cta {
+            padding: 120px 100px;
+            text-align: center;
+            background: linear-gradient(135deg, #0d0d1a 0%, #1a0a2e 50%, #0a1240 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(233, 30, 140, 0.1) 0%, transparent 65%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .cta h2 {
+            font-size: clamp(32px, 4vw, 56px);
+            font-weight: 900;
+            color: white;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .cta h2 em {
+            font-style: normal;
+            color: #e91e8c;
+        }
+
+        .cta p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.8;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .btn-cta-primary {
+            background: linear-gradient(135deg, var(--pink), #7b2ff7);
+            color: white;
+            padding: 17px 40px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 8px 28px rgba(233, 30, 140, 0.4);
+        }
+
+        .btn-cta-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgba(233, 30, 140, 0.55);
+        }
+
+        .btn-cta-ghost {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.75);
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.2s;
+        }
+
+        .btn-cta-ghost:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ══ RESPONSIVE ══ */
+
+        /* — Tablet: 1024px — */
+        @media (max-width: 1024px) {
+            .hero {
+                padding: 80px 48px 0;
+            }
+
+            .about-strip,
+            .conditions,
+            .signs,
+            .treatment,
+            .why,
+            .faq,
+            .cta {
+                padding: 70px 48px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+
+            .about-quote-panel {
+                display: none;
+            }
+
+            /* Conditions: 2 cols, wide card still spans 2 */
+            .cond-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cond-card.wide {
+                grid-column: span 2;
+            }
+
+            .treatment-split {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .signs-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .signs-top {
+                gap: 40px;
+            }
+
+            .faq-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .faq-left {
+                position: static;
+            }
+        }
+
+        /* — Small Tablet: 768px — */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 56px 24px 0;
+                min-height: unset;
+            }
+
+            .hero h1 {
+                font-size: clamp(32px, 8vw, 52px);
+                letter-spacing: -0.5px;
+            }
+
+            .hero-stat-bar {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .hero-stat:nth-child(3) {
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                border-right: 1px solid rgba(255, 255, 255, 0.08);
+            }
+
+            .hero-stat:nth-child(4) {
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                border-right: none;
+            }
+
+            .about-strip,
+            .conditions,
+            .signs,
+            .treatment,
+            .why,
+            .faq,
+            .cta {
+                padding: 56px 20px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .about-services {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-stats-row {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            /* Conditions: 1 col on mobile, wide card full width */
+            .cond-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cond-card.wide {
+                grid-column: span 1;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .cond-card.wide>div:last-child {
+                padding-top: 0;
+            }
+
+            .signs-top {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                margin-bottom: 36px;
+            }
+
+            .signs-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .signs-cta-note {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+
+            .treatment-split {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .why-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .why-stats-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .ws-item:nth-child(2) {
+                border-right: none;
+            }
+
+            .ws-item:nth-child(3) {
+                border-top: 1px solid #f0eaf8;
+                border-right: 1px solid #f0eaf8;
+            }
+
+            .ws-item:nth-child(4) {
+                border-top: 1px solid #f0eaf8;
+                border-right: none;
+            }
+
+            .faq-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .faq-left {
+                position: static;
+            }
+
+            .cta {
+                padding: 72px 24px;
+            }
+
+            .cta-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* — Mobile: 480px — */
+        @media (max-width: 480px) {
+            .hero {
+                padding: 48px 16px 0;
+            }
+
+            .hero-content {
+                padding-bottom: 48px;
+            }
+
+            .hero h1 {
+                font-size: clamp(28px, 9vw, 40px);
+            }
+
+            .hero-sub {
+                font-size: 15px;
+            }
+
+            .hero-stat-bar {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-eyebrow {
+                padding: 6px 12px;
+            }
+
+            .about-strip,
+            .conditions,
+            .signs,
+            .treatment,
+            .why,
+            .faq,
+            .cta {
+                padding: 48px 16px;
+            }
+
+            .about-services {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: clamp(24px, 7vw, 36px);
+            }
+
+            /* Conditions: all single col */
+            .cond-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .cond-card.wide {
+                grid-column: span 1;
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .cond-card.wide>div:last-child {
+                padding-top: 0;
+            }
+
+            .cond-card {
+                padding: 28px 22px;
+            }
+
+            /* Signs: 1 col on phone */
+            .signs-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .signs-top {
+                margin-bottom: 28px;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-stats-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nethradhama-card {
+                padding: 32px 24px;
+            }
+
+            .faq-question {
+                padding: 18px 20px;
+            }
+
+            .faq-q-label {
+                gap: 10px;
+            }
+
+            .faq-answer-inner {
+                padding: 0 20px 20px 20px;
+            }
+
+            .signs-cta-note {
+                padding: 20px;
+            }
+
+            .about-stats-row {
+                flex-direction: column;
+            }
+
+            .asr-item:not(:last-child)::after {
+                display: none;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn-primary,
+            .btn-outline {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ══ HERO ══ -->
+    <section class="hero">
+        <div class="hero-glow-1"></div>
+        <div class="hero-glow-2"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">
+                <div class="hero-eyebrow-dot"></div>
+                <span>Shraddha Eye Care Trust · Bangalore</span>
+            </div>
+            <h1>Pediatric <em>Eye Care</em><br>Built for <span class="purple-text">Little Eyes.</span></h1>
+            <p class="hero-sub">Early detection of eye problems can make a significant difference in preventing
+                long-term issues. Our team guides you through the process with compassion and expertise.</p>
+            <div class="hero-actions">
+                <button class="btn-primary">Book An Appointment</button>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ══ ABOUT ══ -->
+    <section class="about-strip">
+        <div class="about-grid">
+
+            <!-- Left: intro + stats + CTA -->
+            <div class="about-left">
+                <span class="tag">About the Specialty</span>
+                <h2 class="section-title">What is <span class="brand-pink">Pediatric</span> <span
+                        class="brand-purple">Ophthalmology?</span></h2>
+                <p>Pediatric ophthalmology focuses on the care of children's eyes. Unlike adults, children may not
+                    always be able to tell you if they're experiencing vision problems. That's why it's important for
+                    parents to be aware of early signs and seek expert care as soon as possible. Pediatric
+                    ophthalmologists specialize in identifying and treating eye conditions in infants, children, and
+                    adolescents, using a child-friendly approach.</p>
+
+
+
+                <div class="about-divider"></div>
+                <p>Our pediatric specialists work closely with you and your child to ensure their vision is on track for
+                    a healthy future.</p>
+
+                <a href="#contact" class="about-cta">Book a Consultation &nbsp;&#8594;</a>
+            </div>
+
+            <!-- Right: 2x2 service cards -->
+            <div class="about-services">
+                <div class="asv-card">
+                    <div class="asv-icon-wrap">&#128269;</div>
+                    <h4>Routine Eye Checks</h4>
+                    <p>Regular exams to track development and catch problems before they worsen.</p>
+                    <span class="asv-card-arrow">Learn more &#8594;</span>
+                </div>
+                <div class="asv-card">
+                    <div class="asv-icon-wrap">&#128083;</div>
+                    <h4>Glasses &amp; Contact Lenses</h4>
+                    <p>Corrective eyewear tailored for active, growing children.</p>
+                    <span class="asv-card-arrow">Learn more &#8594;</span>
+                </div>
+                <div class="asv-card">
+                    <div class="asv-icon-wrap">&#128138;</div>
+                    <h4>Treating Eye Infections</h4>
+                    <p>Managing infections with gentle, targeted medical care.</p>
+                    <span class="asv-card-arrow">Learn more &#8594;</span>
+                </div>
+                <div class="asv-card">
+                    <div class="asv-icon-wrap">&#127973;</div>
+                    <h4>Surgery When Necessary</h4>
+                    <p>Precision surgical interventions for cataracts, strabismus &amp; more.</p>
+                    <span class="asv-card-arrow">Learn more &#8594;</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <!-- ══ CONDITIONS ══ -->
+    <section class="conditions">
+        <div class="conditions-header">
+            <span class="tag">Conditions We Treat</span>
+            <h2 class="section-title">Common Eye Conditions <span class="brand-pink">in Children</span></h2>
+            <p class="desc">Children may experience various eye problems, some of which are easily visible, like
+                squinting or difficulty focusing. Others may not be noticeable until symptoms appear. Some conditions
+                are more common than others, and being able to identify early warning signs can help ensure your child
+                gets the right care quickly.</p>
+        </div>
+
+        <div class="cond-grid">
+
+            <!-- Card 1 — wide, 2 cols -->
+            <div class="cond-card wide">
+                <div>
+                    <div class="cond-num">01</div>
+                    <div class="cond-icon">&#128065;&#65039;</div>
+                    <h3>Refractive Errors <span style="font-weight:400; font-size:15px; color:#9ca3af;">(Vision
+                            Problems)</span></h3>
+                    <p>Refractive errors occur when the eye does not focus light properly, leading to blurry vision.
+                        This can be caused by:</p>
+                    <p style="margin-top:14px; font-size:13px; color:#9ca3af; font-style:italic;">Refractive errors can
+                        be easily corrected with glasses or contact lenses.</p>
+                </div>
+                <div style="padding-top: 48px;">
+                    <ul class="cond-list">
+                        <li><strong>Myopia (Near-sightedness):</strong> Difficulty seeing distant objects clearly.</li>
+                        <li><strong>Hyperopia (Farsightedness):</strong> Difficulty seeing nearby objects clearly.</li>
+                        <li><strong>Astigmatism:</strong> Distorted vision at all distances.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="cond-card">
+                <div class="cond-num">02</div>
+                <div class="cond-icon">&#129504;</div>
+                <h3>Amblyopia <span style="font-weight:400; font-size:14px; color:#9ca3af;">(Lazy Eye)</span></h3>
+                <p>Occurs when one eye doesn't develop normal vision, often because the brain favours the stronger eye.
+                    This condition can lead to poor depth perception and can be hard to spot without a routine eye exam.
+                </p>
+                <p style="margin-top:12px; padding-top:12px; border-top:1px solid #f0eaf8;">Treatment typically involves
+                    patching the stronger eye or using special eye drops to encourage the weaker eye to develop.</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="cond-card">
+                <div class="cond-num">03</div>
+                <div class="cond-icon">&#128064;</div>
+                <h3>Strabismus <span style="font-weight:400; font-size:14px; color:#9ca3af;">(Crossed Eyes)</span></h3>
+                <p>Strabismus is when the eyes are misaligned, causing them to point in different directions. This can
+                    lead to blurry or double vision, and if untreated, it can affect the development of normal vision in
+                    both eyes.</p>
+                <p style="margin-top:12px; padding-top:12px; border-top:1px solid #f0eaf8;">Treatment may include
+                    corrective glasses, exercises, or in some cases, surgery to align the eyes properly.</p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="cond-card">
+                <div class="cond-num">04</div>
+                <div class="cond-icon">&#128300;</div>
+                <h3>Pediatric Cataracts</h3>
+                <p>Though rare, cataracts can affect children when the lens in the eye becomes cloudy, causing blurry
+                    vision. Treatment may involve surgery to remove the cataract and replace it with an artificial lens.
+                </p>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="cond-card">
+                <div class="cond-num">05</div>
+                <div class="cond-icon">&#128167;</div>
+                <h3>Blocked Tear Ducts</h3>
+                <p>Blocked tear ducts can cause excessive tearing or eye infections in infants. This condition is common
+                    and often resolves on its own, but in some cases, treatment may involve massage or surgery to
+                    unblock the duct.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- ══ WARNING SIGNS ══ -->
+    <section class="signs">
+        <div class="signs-top">
+            <div>
+                <h2 class="section-title">When to Seek Help for <span class="brand-purple">Your Child's Eyes</span></h2>
+            </div>
+            <p class="signs-right-desc">It's essential to monitor your child's eye health and seek professional care if
+                you notice any of the following signs. Early detection makes a significant difference in outcomes.</p>
+        </div>
+        <div class="signs-grid">
+            <div class="sign-card"><span class="sign-card-icon">🔍</span>
+                <h4>Frequent Squinting</h4>
+                <p>Frequent squinting or tilting their head to see — a clear indicator that vision may need correction.
+                </p>
+            </div>
+            <div class="sign-card"><span class="sign-card-icon">�️</span>
+                <h4>Excessive Eye Rubbing</h4>
+                <p>Excessive rubbing of the eyes, which can signal eye strain, irritation, or discomfort.</p>
+            </div>
+            <div class="sign-card"><span class="sign-card-icon">📺</span>
+                <h4>Difficulty Reading or Watching TV</h4>
+                <p>Sitting too close to screens or struggling to read from a normal distance.</p>
+            </div>
+            <div class="sign-card"><span class="sign-card-icon">🌫️</span>
+                <h4>Complaints of Blurry Vision</h4>
+                <p>Any complaints of blurry, unclear, or double vision should be evaluated by a specialist promptly.</p>
+            </div>
+            <div class="sign-card"><span class="sign-card-icon">🔴</span>
+                <h4>Red or Watery Eyes</h4>
+                <p>Persistent redness, discharge, or excessive tearing that doesn't resolve naturally.</p>
+            </div>
+            <div class="sign-card"><span class="sign-card-icon">☀️</span>
+                <h4>Sensitivity to Light</h4>
+                <p>Unusual discomfort or avoidance of bright light, also known as photophobia.</p>
+            </div>
+        </div>
+        <div class="signs-cta-note">
+            <span>👶</span>
+            <p><strong>Early eye exams are recommended for children around 3 years old,</strong> even if there are no
+                obvious signs of a problem. Regular check-ups are vital, especially as your child grows and their vision
+                changes.</p>
+        </div>
+    </section>
+
+
+    <!-- ══ TREATMENT TIMELINE ══ -->
+    <section class="treatment">
+        <div class="treatment-split">
+            <div>
+                <span class="tag">Our Services</span>
+                <h2 class="section-title">
+                    Why Choose
+                    <span class="brand-pink">Shraddha Eye Care Trust</span> <span class="brand-purple">for Pediatric
+                        Ophthalmolog</span> in Bangalore?
+                </h2>
+                <p class="desc" style="margin-bottom:40px;">
+                    At Shraddha Eye Care Trust, we understand the unique challenges of diagnosing and treating eye
+                    conditions in children. Our pediatric ophthalmologists are trained to work with young patients in a
+                    compassionate, child-friendly environment. We ensure that every step of your child’s treatment plan
+                    is explained in detail and that you are always involved in the process.
+                    With advanced diagnostic tools, personalized care, and a focus on early intervention, Shraddha Eye
+                    Care Trust is your trusted partner in maintaining your child’s vision for the future.
+                    For advanced pediatric eye care, we collaborate with Nethradhama, providing your child with access
+                    to cutting-edge procedures and expert surgeons.
+                </p>
+
+            </div>
+            <div class="nethradhama-card">
+                <span class="nth-badge">Advanced Pediatric Procedures</span>
+                <h3>Advanced Care at Nethradhama</h3>
+                <p>
+                    While most eye conditions in children can be treated with glasses or basic interventions, some
+                    require more specialized care. For complex conditions, such as advanced pediatric cataracts or
+                    severe strabismus, Shraddha Eye Care Trust works closely with Nethradhama Super Specialty Eye
+                    Hospital. Nethradhama is known for its advanced pediatric ophthalmology treatments, including
+                    pediatric cataract surgery, strabismus surgery, and other specialized interventions.
+                </p>
+                <p>
+                    If your child requires more specialized care, we will ensure they receive the best possible
+                    treatment at Nethradhama.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- ══ FAQ ══ -->
+    <section class="faq">
+        <div class="faq-layout">
+
+            <!-- Left: decorative sticky panel -->
+            <div class="faq-left">
+                <span class="tag">Common Questions</span>
+                <h2 class="section-title">FAQs on <span class="brand-pink">Pediatric</span> <span
+                        class="brand-purple">Ophthalmology</span></h2>
+                <p class="desc">Everything parents want to know about their child's eye health, answered clearly by our
+                    specialists.</p>
+
+            </div>
+
+            <!-- Right: accordion -->
+            <div class="faq-accordion">
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <div class="faq-q-label">
+                            <span class="faq-q-badge">Q1</span>
+                            <span>When should I take my child for their first eye exam?</span>
+                        </div>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>It's recommended to have your child's first eye exam at <strong>3 years of age</strong>
+                                to catch any early signs of vision problems.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <div class="faq-q-label">
+                            <span class="faq-q-badge">Q2</span>
+                            <span>How can I tell if my child needs glasses?</span>
+                        </div>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>If your child frequently squints, holds reading material close to their face, or
+                                complains of blurry vision, it's a good idea to schedule an eye exam.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                        <div class="faq-q-label">
+                            <span class="faq-q-badge">Q3</span>
+                            <span>What are the most common eye problems in children?</span>
+                        </div>
+                        <div class="faq-icon">+</div>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            <p>Refractive errors, amblyopia, strabismus, and blocked tear ducts are some of the most
+                                common issues.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ══ CTA ══ -->
+    <section class="cta">
+        <h2>Book an Appointment <em>Today.</em></h2>
+        <p>If you’re concerned about your child’s eye health, don’t wait. Contact Shraddha Eye Care Trust today to
+            schedule an eye exam or consultation with one of our best pediatric ophthalmologists.</p>
+        <div class="cta-btns">
+            <a href="tel:
+ +91 9900010778"><button class="btn-cta-primary">Book an Appointment</button></a>
+            <a href="https://shraddhaeyecaretrust.com/doctors/"><button class="btn-cta-ghost">Consult a Specialist
+                    →</button></a>
+        </div>
+    </section>
+
+</body>
+
+</html>
